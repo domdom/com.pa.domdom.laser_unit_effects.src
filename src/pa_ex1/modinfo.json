@@ -1,0 +1,11 @@
+{
+  "context" : "client",
+  "identifier" : "com.pa.domdom.laser_unit_effects",
+  "display_name" : "More Pew Pew",
+  "description" : "More pew, more color, and more distinguishable unit weapon effects! Tell at a glance what is shooting at you.",
+  "author" : "dom314",
+  "forum" : "https://forums.uberent.com/threads/rel-client-more-pew-pew.69229/",
+  "icon" : "http://i.imgur.com/PQOpc3u.gif",
+  "category": ["titans", "effects"],
+  "titansOnly": true
+}
