@@ -1,0 +1,9 @@
+[submodule "pa_tools"]
+	path = pa_tools
+	url = git@github.com:domdom/pa_tools
+[submodule "classic"]
+	path = classic
+	url = git@github.com:domdom/com.pac.domdom.laser_unit_effects
+[submodule "titans"]
+	path = titans
+	url = git@github.com:domdom/com.pa.domdom.laser_unit_effects
