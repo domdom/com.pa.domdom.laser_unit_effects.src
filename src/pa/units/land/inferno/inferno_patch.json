@@ -80,7 +80,7 @@
             {"op" : "move", "path" : "/emitters/3/spec/_blue", "from" : "/emitters/3/spec/red"},
             {"op" : "move", "path" : "/emitters/3/spec/red", "from" : "/emitters/3/spec/blue"},
             {"op" : "move", "path" : "/emitters/3/spec/blue", "from" : "/emitters/3/spec/_blue"},
-            {"op" : "replace", "path" : "/emitters/1/spec/baseTexture", "value" : "/pa/units/land/tank_armor/blueflame.papa"}
+            {"op" : "replace", "path" : "/emitters/1/spec/baseTexture", "value" : "/pa/units/land/tank_armor/blueflame.papa"},
 
 
             // add initial sparks emitter
