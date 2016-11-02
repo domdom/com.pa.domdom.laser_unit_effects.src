@@ -6,13 +6,13 @@
       {
         "op": "replace",
         "path": "/events/fired/effect_spec",
-        "value": "/mod/com.pa.domdom.laser_unit_effects/ant/ant_muzzle_flash.pfx socket_muzzle /mod/com.pa.domdom.laser_unit_effects/ant/burst_flash.pfx bone_root"
+        "value": "/pa/units/land/tank_light_laser/tank_light_laser_muzzle_flash.pfx socket_muzzle /pa/units/land/tank_light_laser/tank_light_laser_burst_flash.pfx bone_root"
       }
     ]
   },
   {
     "target": "/src/pa/units/land/ant/burst_flash.pfx",
-    "destination": "/mod/com.pa.domdom.laser_unit_effects/ant/burst_flash.pfx",
+    "destination": "/pa/units/land/tank_light_laser/tank_light_laser_burst_flash.pfx",
     "patch" : [
       {"op": "add", "path": "/emitters/0/red", "value" : 0.1 },
       {"op": "add", "path": "/emitters/0/green", "value" : 4.0 },
@@ -49,7 +49,7 @@
   },
   {
     "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
-    "destination": "/mod/com.pa.domdom.laser_unit_effects/ant/ant_muzzle_flash.pfx",
+    "destination": "/pa/units/land/tank_light_laser/tank_light_laser_muzzle_flash.pfx",
     "patch": [
       {"op": "add", "path": "/emitters/0/spec/red", "value": 0.1 },
       {"op": "add", "path": "/emitters/0/spec/green", "value": 1 },
@@ -159,7 +159,7 @@
           "effect_spec": "/pa/units/land/tank_light_laser/tank_light_laser_ammo_hit.pfx"
         }
       }},
-      {"op": "replace", "path": "/fx_trail/filename", "value": "/pa/units/land/tank_light_laser/tank_light_laser_ammo_trail.pfx"}
+      {"op": "replace", "path": "/fx_trail/filename", "value": "/pa/units/land/tank_light_laser/tank_light_laser_ammo_trail.pfx"},
     ]
   },
   {
