@@ -4,10 +4,13 @@ from pa_tools.pa import pafs
 # needed for modinfo update
 from datetime import datetime
 from shutil import copyfile
+import os
 
 from pa_tools.pa import pafs
 from pa_tools.pa import paths
 from pa_tools.pa import pajson
+
+from pa_tools.lib import patcher
 
 
 # options, warnings = pajson.loadf('conf.json')
@@ -21,9 +24,10 @@ from pa_tools.pa import pajson
 
 print ('PA MEDIA DIR:', paths.PA_MEDIA_DIR)
 # create file resolution mappings (handles the mounting of pa_ex1 on pa and fallback etc.)
-fs = pafs(paths.PA_MEDIA_DIR)
-fs.mount('/pa', '/pa_ex1')
-fs.mount('/src', '.')
+src = pafs(paths.PA_MEDIA_DIR)
+src.mount('/pa', '/pa_ex1')
+src.mount('/src', '.')
+
 
 sources = [
     { "from_file" :   "/src/pa/units/land/ant/ant_patch.json"},
@@ -69,7 +73,7 @@ sources = [
 # ]
 
 
-def process_changes(changes, loader):
+def process_changes(changes, loader, out_dir):
     for change in changes:
         # we have an object, but it is a reference to a file patch to load
         if isinstance(change, dict) and 'from_file' in change:
@@ -82,9 +86,7 @@ def process_changes(changes, loader):
             print('==== loading:', from_file)
             changes, warnings = pajson.loadf(from_file)
 
-            if warnings:
-                for warning in warnings: print (warning)
-
+            list(map(print, warnings))
             # make sure our changes are a list
             if isinstance(changes, dict):
                 changes = [changes]
@@ -92,7 +94,7 @@ def process_changes(changes, loader):
             # process new list recursively.
             from os.path import dirname
             loader.mount('/', dirname(from_file))
-            process_changes(changes, loader)
+            process_changes(changes, loader, out_dir)
             loader.unmount('/')
 
             continue
@@ -106,28 +108,44 @@ def process_changes(changes, loader):
             target = change['target']
             destination = change.get('destination', target)
 
-            _do_patch(target, change['patch'], destination, loader)
+            _do_patch(target, change['patch'], destination, loader, out_dir)
 
         # list of targets
         if isinstance(change['target'], list):
             for target in change['target']:
-                _do_patch(target, change['patch'], target, loader)
+                _do_patch(target, change['patch'], target, loader, out_dir)
 
 
-def _do_patch(target, patch, destination, loader):
+def _do_patch(target, patch, destination, loader, out_dir):
     resolved = loader.resolveFile(target)
     if resolved == None:
         print ("!! ERROR: Not Found '" + target + "'")
         return
 
+    destination_path = _join(out_dir, destination)
+    os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+
     if patch == []:
-        print (' copy: ' + resolved)
+        print (' copy: ' + destination_path)
+        copyfile(resolved, destination_path)
         return
 
-    print ('patch: ' + resolved)
-    obj, warnings = pajson.loadf(resolved)
+    print ('patch: ' + destination_path)
+    target_obj, warnings = pajson.loadf(resolved)
+
+    list(map(print, warnings))
+
+    result_obj = patcher.apply_patch(target_obj, patch)
+
+    with open(destination_path, 'w') as dest:
+        pajson.dump(result_obj, dest)
 
 
+def _join(path1, path2):
+    from posixpath import join
+    if path1 is None or path2 is None:
+        return None
+    return join(path1, path2.strip("/"))
 
 
-process_changes(sources, fs)
+process_changes(sources, src, '../titans')
