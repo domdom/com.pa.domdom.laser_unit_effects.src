@@ -1,0 +1,42 @@
+[
+    { "from_file" :   "/src/pa/units/land/ant/ant_patch.json"},
+    { "from_file" :   "/src/pa/units/land/inferno/inferno_patch.json"},
+    { "from_file" :   "/src/pa/units/land/leveler/leveler_patch.json"}
+]
+/*
+{ "from_script" : "/land/commander/commander.py"},
+
+{ "from_file" :   "/misc/hover_effect_color.pa_patch" },
+
+{ "from_file" :   "/titans/ares/ares.pa_patch" },
+
+{ "from_file" :   "/land/drifter/drifter.pa_patch" },
+
+{ "from_file" :   "/land/leveler/leveler.pa_patch" },
+{ "from_file" :   "/land/sheller/sheller.pa_patch" },
+
+{ "from_file" :   "/bot/dox/dox2.pa_patch" },
+{ "from_file" :   "/bot/grenadier/grenadier.pa_patch" },
+{ "from_file" :   "/bot/slammer/slammer.pa_patch" },
+{ "from_file" :   "/bot/sniper/sniper.pa_patch" },
+
+{ "from_file" :   "/air/kestrel/kestrel.pa_patch" },
+
+{ "from_file" :   "/static/catapult/catapult.pa_patch" },
+{ "from_file" :   "/static/pelter/pelter.pa_patch" },
+{ "from_file" :   "/static/holkins/holkins.pa_patch" },
+{ "from_file" :   "/static/laser/t1.pa_patch" },
+{ "from_file" :   "/static/laser/t2.pa_patch" },
+{ "from_file" :   "/static/laser/t3.pa_patch" },
+
+{ "from_file" :   "/sea/torpedo/torpedo.pa_patch" },
+{ "from_file" :   "/misc/aa_missile.pa_patch" },
+{ "from_file" :   "/misc/tactical_missile.pa_patch" },
+
+{ "from_file" :   "/sea/piranha/piranha.pa_patch" },
+{ "from_file" :   "/sea/narwhal/narwhal.pa_patch" },
+{ "from_file" :   "/sea/leviathan/leviathan.pa_patch" },
+{ "from_file" :   "/sea/kraken/kraken.pa_patch" },
+{ "from_file" :   "/sea/kaiju/kaiju.pa_patch" },
+{ "from_file" :   "/sea/orca/orca.pa_patch" }
+*/
