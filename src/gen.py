@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+import os
+
 from pa_tools.pa import pafs
 from pa_tools.pa import paths
 from pa_tools.pa import pajson
 
-from pa_tools.mod.generator import generate_modinfo, process_changes
+from pa_tools.mod.generator import process_modinfo, process_changes
 
 options, warnings = pajson.loadf('conf.json')
 print ('======= Loading Options =======')
@@ -28,15 +30,13 @@ def create_source_fs(is_titans):
 
     return src
 
-def load_sources(loader):
-    source_path = loader.resolveFile('/src/pa/sources.json')
-
-    sources, warnings = pajson.loadf(source_path)
+def load_json(loader, path):
+    resolved = loader.resolveFile(path)
+    json, warnings = pajson.loadf(resolved)
     for w in warnings:
         print (w)
+    return json
 
-    return sources
-    
 
 def generate_mod(is_titans):
     if is_titans:
@@ -47,14 +47,15 @@ def generate_mod(is_titans):
         out_dir = '../classic'
 
     src = create_source_fs(is_titans)
-    
-    sources = load_sources(src)
 
+    process_modinfo('/src/pa/modinfo.json', src, out_dir)
+    
     # mount the mod directory
     src.mount('/mod', out_dir)
 
+    sources = load_json(src, '/src/pa/sources.json')
     process_changes(sources, src, out_dir)
     print ('')
 
-generate_mod(False)
-# generate_mod(True)
+# generate_mod(False)
+generate_mod(True)
