@@ -1,0 +1,213 @@
+[
+    {
+        "target" : "/pa/units/air/missile_tactical/missile_tactical_trail.pfx",
+        "destination" : [
+            "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_trail.pfx",
+            "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_trail.pfx",
+            "/pa/units/air/bomber_adv/bomber_adv_ammo_trail.pfx"
+        ],
+        "patch" : [
+            {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : 0.2},
+            {"op" : "replace", "path" : "/emitters/0/spec/blue", "value" : 4},
+
+            {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 5},
+            {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : 1},
+            {"op" : "replace", "path" : "/emitters/1/spec/blue", "value" : 5},
+
+            {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 5},
+            {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 1},
+            {"op" : "replace", "path" : "/emitters/2/spec/blue", "value" : 5},
+
+            {"op" : "replace", "path" : "/emitters/3/spec/shader", "value" : "particle_transparent"},
+            {"op" : "replace", "path" : "/emitters/3/emissionRate", "value" : 40},
+            {"op" : "replace", "path" : "/emitters/3/lifetime", "value" : 0.7},
+            {"op" : "replace", "path" : "/emitters/3/sizeX", "value" : 1.2},
+            {"op" : "replace", "path" : "/emitters/3/spec/baseTexture", "value" : "/pa/effects/textures/particles/simpleSmoke.papa"},
+            {"op" : "remove", "path" : "/emitters/3/inheritedVelocity"},
+
+            {"op" : "replace", "path" : "/emitters/3/spec/red", "value" : [[0, 9], [0.1, 5], [0.4, 0.5], [1, 0]]},
+            {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : [[0, 7], [0.1, 1], [0.4, 0.5], [1, 0]]},
+            {"op" : "replace", "path" : "/emitters/3/spec/blue", "value" : [[0, 9], [0.1, 3], [0.4, 0.5], [1, 0]]},
+
+            {"op" : "replace", "path" : "/emitters/4/spec/blue", "value" : 0.5}
+        ]
+    },
+    {
+        "target" : "/pa/units/air/missile_tactical/missile_tactical_trail.pfx",
+        "destination" : "/pa/units/sea/missile_ship/missile_ship_ammo_trail.pfx",
+        "patch" : [
+            {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : 0.2},
+            {"op" : "replace", "path" : "/emitters/0/spec/blue", "value" : 4},
+
+            {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 2},
+            {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : 1},
+            {"op" : "replace", "path" : "/emitters/1/spec/blue", "value" : 5},
+
+            {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 2},
+            {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 1},
+            {"op" : "replace", "path" : "/emitters/2/spec/blue", "value" : 5},
+
+            {"op" : "replace", "path" : "/emitters/3/emissionRate", "value" : 40},
+            {"op" : "replace", "path" : "/emitters/3/lifetime", "value" : 0.7},
+            {"op" : "replace", "path" : "/emitters/3/sizeX", "value" : 1.2},
+
+            {"op" : "replace", "path" : "/emitters/3/spec/baseTexture", "value" : "/pa/effects/textures/particles/simpleSmoke.papa"},
+            {"op" : "replace", "path" : "/emitters/3/spec/shader", "value" : "particle_transparent"},
+            {"op" : "remove", "path" : "/emitters/3/inheritedVelocity"},
+
+            {"op" : "scale", "path" : "/emitters/1/sizeX", "value" : 1.6},
+            {"op" : "scale", "path" : "/emitters/2/sizeX", "value" : 1.6},
+            {"op" : "scale", "path" : "/emitters/3/emissionRate", "value" : 0.5},
+            {"op" : "scale", "path" : "/emitters/3/sizeX", "value" : 2.1},
+            {"op" : "scale", "path" : "/emitters/3/lifetime", "value" : 3},
+
+
+            {"op" : "replace", "path" : "/emitters/3/spec/red", "value" : [[0, 9], [0.1, 5], [0.4, 0.5], [1, 0]]},
+            {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : [[0, 7], [0.1, 1], [0.4, 0.5], [1, 0]]},
+            {"op" : "replace", "path" : "/emitters/3/spec/blue", "value" : [[0, 9], [0.1, 3], [0.4, 0.5], [1, 0]]},
+
+
+            {"op" : "replace", "path" : "/emitters/4/spec/blue", "value" : 0.5}
+        ]
+    },
+    {
+       "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.4.pfx", 
+       "destination" : [
+            "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx"
+        ],
+       "patch" : [
+          {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 100 ], [0.35, 4 ]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : [[0, 10 ], [0.35, 2 ]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/blue",  "value" : [[0, 80 ], [0.35, 20]]},
+
+          {"op" : "replace", "path" : "/emitters/1/spec/red",   "value" : [[0, 100 ], [0.35, 20 ]]},
+          {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : [[0, 10 ], [0.35, 2]]},
+          {"op" : "replace", "path" : "/emitters/1/spec/blue",  "value" : [[0, 80 ], [0.35, 20]]},
+
+          {"op" : "replace", "path" : "/emitters/4/spec/red",   "value" : [[0, 10 ], [0.75, 10 ]]},
+          {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : [[0, 3  ], [0.75, 1 ]]},
+          {"op" : "replace", "path" : "/emitters/4/spec/blue",  "value" : [[0, 10 ], [0.75, 10]]},
+
+          {"op" : "replace", "path" : "/emitters/5/spec/red",   "value" : [[0, 10 ], [0.75, 1 ]]},
+          {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : [[0, 1 ], [0.75, 0.5 ]]},
+          {"op" : "replace", "path" : "/emitters/5/spec/blue",  "value" : [[0, 10 ], [0.75, 1]]},
+
+          {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 6.0},
+          {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.4},
+          {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 5.0},
+
+          {"op" : "scale", "path" : "/emitters/3/sizeX",   "value" : 2},
+          {"op" : "scale", "path" : "/emitters/3/sizeY",   "value" : 1.5},
+          {"op" : "scale", "path" : "/emitters/3/lifetime",   "value" : 1.5},
+          {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 10},
+          {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1},
+          {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 10},
+
+          {"op" : "scale", "path" : "/emitters/8/sizeX",   "value" : 1.6},
+
+          {"op" : "add", "path" : "/emitters/-", "value" : {
+              "spec": {
+                "label": "GLOW",
+                "shader": "particle_add_soft",
+                "rgb": [[0.0, 3, [255, 200, 255, 150 ] ], [0.2, 2, [252, 90, 249, 100 ] ], [1, 1, [249, 50, 150, 0 ] ] ],
+                "sizeX": [[0.0, 0.0 ], [0.1, 0.36 ], [0.2, 0.64 ], [0.3, 0.84 ], [0.6, 0.96 ], [1.0, 1.0 ] ],
+                "cameraPush": 0.5,
+                "baseTexture": "/pa/effects/textures/particles/softdot.papa",
+                "dataChannelFormat": "PositionAndColor"
+              },
+              "offsetY": -1.5,
+              "sizeX": 100,
+              "emissionBursts": 1,
+              "lifetime": 0.75,
+              "bLoop": false,
+              "sort": "NoSort",
+              "endDistance": 2000
+            }}
+        ]
+    },
+    {
+        "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.2.pfx",
+        "destination" : [
+            "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_hit.pfx",
+            "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_hit.pfx",
+            "/pa/units/air/bomber_adv/bomber_adv_ammo_hit.pfx"
+        ],
+        "patch" : [
+          {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 100 ], [0.35, 4 ]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : [[0, 10 ], [0.35, 2 ]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/blue",  "value" : [[0, 80 ], [0.35, 20]]},
+
+          {"op" : "replace", "path" : "/emitters/1/spec/red",   "value" : [[0, 100 ], [0.35, 20 ]]},
+          {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : [[0, 10 ], [0.35, 2]]},
+          {"op" : "replace", "path" : "/emitters/1/spec/blue",  "value" : [[0, 80 ], [0.35, 20]]},
+
+          {"op" : "replace", "path" : "/emitters/4/spec/red",   "value" : [[0, 10 ], [0.75, 10 ]]},
+          {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : [[0, 3  ], [0.75, 1 ]]},
+          {"op" : "replace", "path" : "/emitters/4/spec/blue",  "value" : [[0, 10 ], [0.75, 10]]},
+
+          {"op" : "replace", "path" : "/emitters/5/spec/red",   "value" : [[0, 10 ], [0.75, 1 ]]},
+          {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : [[0, 1 ], [0.75, 0.5 ]]},
+          {"op" : "replace", "path" : "/emitters/5/spec/blue",  "value" : [[0, 10 ], [0.75, 1]]},
+
+          {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 6.0},
+          {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.4},
+          {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 5.0},
+
+          {"op" : "scale", "path" : "/emitters/3/sizeX",   "value" : 2},
+          {"op" : "scale", "path" : "/emitters/3/sizeY",   "value" : 1.5},
+          {"op" : "scale", "path" : "/emitters/3/lifetime",   "value" : 1.5},
+          {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 10},
+          {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1},
+          {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 10},
+
+          {"op" : "scale", "path" : "/emitters/8/sizeX",   "value" : 1.6},
+
+          {"op" : "add", "path" : "/emitters/-", "value" : {
+              "spec": {
+                "label": "GLOW",
+                "shader": "particle_add_soft",
+                "rgb": [[0.0, 3, [255, 200, 255, 150 ] ], [0.2, 2, [252, 90, 249, 100 ] ], [1, 1, [249, 50, 150, 0 ] ] ],
+                "sizeX": [[0.0, 0.0 ], [0.1, 0.36 ], [0.2, 0.64 ], [0.3, 0.84 ], [0.6, 0.96 ], [1.0, 1.0 ] ],
+                "cameraPush": 0.5,
+                "baseTexture": "/pa/effects/textures/particles/softdot.papa",
+                "dataChannelFormat": "PositionAndColor"
+              },
+              "offsetY": 0,
+              "sizeX": 20,
+              "emissionBursts": 1,
+              "lifetime": 0.75,
+              "bLoop": false,
+              "sort": "NoSort",
+              "endDistance": 2000
+            }}
+        ]
+    },
+    {
+        "target" : "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo.json",
+        "patch" : [
+            {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_hit.pfx"},
+            {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_trail.pfx"}}
+        ]
+    },
+    {
+        "target" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo.json",
+        "patch" : [
+            {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_hit.pfx"},
+            {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_trail.pfx"}}
+        ]
+    },
+    {
+        "target" : "/pa/units/air/bomber_adv/bomber_adv_ammo.json",
+        "patch" : [
+            {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/air/bomber_adv/bomber_adv_ammo_hit.pfx"},
+            {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/air/bomber_adv/bomber_adv_ammo_trail.pfx"}}
+        ]
+    },
+    {
+        "target" : "/pa/units/sea/missile_ship/missile_ship_ammo.json",
+        "patch" : [
+            {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx"},
+            {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/sea/missile_ship/missile_ship_ammo_trail.pfx"}}
+        ]
+    }
+]

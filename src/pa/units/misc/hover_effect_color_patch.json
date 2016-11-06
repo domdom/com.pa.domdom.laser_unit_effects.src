@@ -1,0 +1,173 @@
+[
+  {
+    "target": "/pa/effects/specs/hover_idle_01.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/1/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/2/useArmyColor", "value": 0 },
+
+      {"op": "add", "path": "/emitters/0/spec/red", "value": 0.3 },
+      {"op": "add", "path": "/emitters/0/spec/green", "value": 0.7 },
+      {"op": "add", "path": "/emitters/0/spec/blue", "value": 2 },
+
+      {"op": "replace", "path": "/emitters/1/spec/red", "value": 0.3 },
+      {"op": "replace", "path": "/emitters/1/spec/green", "value": 1.8 },
+      {"op": "replace", "path": "/emitters/1/spec/blue", "value": 5 },
+
+      {"op": "replace", "path": "/emitters/2/spec/red", "value": 0.3 },
+      {"op": "replace", "path": "/emitters/2/spec/green", "value": 0.8 },
+      {"op": "replace", "path": "/emitters/2/spec/blue", "value": 5 }
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/hover_idle_02.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/1/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/2/useArmyColor", "value": 0 },
+
+      {"op": "add", "path": "/emitters/0/spec/red", "value": 0.3 },
+      {"op": "add", "path": "/emitters/0/spec/green", "value": 0.7 },
+      {"op": "add", "path": "/emitters/0/spec/blue", "value": 2 },
+
+      {"op": "replace", "path": "/emitters/1/spec/red", "value": 0.3 },
+      {"op": "replace", "path": "/emitters/1/spec/green", "value": 1.8 },
+      {"op": "replace", "path": "/emitters/1/spec/blue", "value": 5 },
+
+      {"op": "replace", "path": "/emitters/2/spec/red", "value": 0.3 },
+      {"op": "replace", "path": "/emitters/2/spec/green", "value": 0.8 },
+      {"op": "replace", "path": "/emitters/2/spec/blue", "value": 5 }
+    ]
+  },
+  {
+    "target": "/pa/units/land/titan_vehicle/titan_vehicle_idle.pfx",
+    "patch": [
+      
+      {"op" : "replace", "path" : "/emitters/0/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/3/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/6/spec/blue", "value" : 4},
+      {"op" : "replace", "path" : "/emitters/7/spec/blue", "value" : 4},
+
+      {"op" : "replace", "path" : "/emitters/0/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/2/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/3/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/4/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/5/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/6/spec/red", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/7/spec/red", "value" : 0.7},
+
+      {"op": "replace", "path": "/emitters/0/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/1/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/2/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/3/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/4/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/5/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/6/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/7/useArmyColor", "value": 0 },
+
+
+
+      {"op": "replace", "path": "/emitters/8/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/9/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/10/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/11/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/12/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/13/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/14/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/15/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/16/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/17/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/18/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/19/useArmyColor", "value": 0 },
+
+      {"op": "replace", "path": "/emitters/8/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/9/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/10/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/11/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/12/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/13/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/14/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/15/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/16/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/17/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/18/spec/red", "value": 0.6 },
+      {"op": "replace", "path": "/emitters/19/spec/red", "value": 0.6 },
+
+      {"op": "replace", "path": "/emitters/8/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/9/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/10/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/11/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/12/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/13/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/14/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/15/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/16/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/17/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/18/spec/green", "value": 5 },
+      {"op": "replace", "path": "/emitters/19/spec/green", "value": 5 },
+
+      {"op": "replace", "path": "/emitters/8/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/9/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/10/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/11/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/12/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/13/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/14/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/15/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/16/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/17/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/18/spec/blue", "value": 30 },
+      {"op": "replace", "path": "/emitters/19/spec/blue", "value": 30 },
+
+
+      {"op": "replace", "path": "/emitters/20/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/21/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/22/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/23/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/24/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/25/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/26/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/27/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/28/useArmyColor", "value": 0 },
+      {"op": "replace", "path": "/emitters/29/useArmyColor", "value": 0 },
+
+      {"op": "add", "path": "/emitters/20/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/21/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/22/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/23/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/24/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/25/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/26/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/27/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/28/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/29/spec/red", "value": 0.1 },
+
+      {"op": "add", "path": "/emitters/20/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/21/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/22/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/23/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/24/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/25/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/26/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/27/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/28/spec/green", "value": 0.8 },
+      {"op": "add", "path": "/emitters/29/spec/green", "value": 0.8 },
+
+      {"op": "add", "path": "/emitters/20/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/21/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/22/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/23/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/24/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/25/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/26/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/27/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/28/spec/blue", "value": 5 },
+      {"op": "add", "path": "/emitters/29/spec/blue", "value": 5 }
+    ]
+  }
+]

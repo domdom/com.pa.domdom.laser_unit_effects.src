@@ -1,0 +1,8 @@
+[
+  {
+    "target" : "/pa/effects/specs/rocket_proj_trail_small.pfx",
+    "patch" : [
+      {"op" : "scale", "path" : "/emitters/1/lifetime", "value" : 2.5}
+    ]
+  }
+]

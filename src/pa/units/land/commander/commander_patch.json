@@ -1,0 +1,110 @@
+[
+  {
+    "target" : "/pa/units/commanders/base_commander/base_commander.json",
+    "patch" : [
+      {"op" : "add", "path" : "/events/fired", "value" : {"effect_spec" : "/pa/units/commanders/base_commander/base_commander_muzzle_flash.pfx socket_rightMuzzle"}}
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
+    "destination": "/pa/units/commanders/base_commander/base_commander_muzzle_flash.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/spec/red", "value": 0.0 },
+      {"op": "replace", "path": "/emitters/0/spec/green", "value": 0.7 },
+      {"op": "replace", "path": "/emitters/0/spec/blue", "value": 0.3 },
+      {"op": "replace", "path": "/emitters/1/spec/red", "value":   [[0.3, 0.5 ], [1, 0.0 ] ] },
+      {"op": "replace", "path": "/emitters/1/spec/green", "value": [[0.3, 5 ], [1, 1.00 ] ] },
+      {"op": "replace", "path": "/emitters/1/spec/blue", "value":  [[0.3, 2 ], [1, 0.60 ] ] },
+
+      {"op": "copy", "path": "/emitters/2/spec/red", "from": "/emitters/1/spec/red"},
+      {"op": "copy", "path": "/emitters/2/spec/green", "from": "/emitters/1/spec/green"},
+      {"op": "copy", "path": "/emitters/2/spec/blue", "from": "/emitters/1/spec/blue"},
+      {"op": "copy", "path": "/emitters/3/spec/red", "from": "/emitters/0/spec/red"},
+      {"op": "copy", "path": "/emitters/3/spec/green", "from": "/emitters/0/spec/green"},
+      {"op": "copy", "path": "/emitters/3/spec/blue", "from": "/emitters/0/spec/blue"},
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {   
+            "shape": "pointlight",
+            "red": 0.2,
+            "green": 1.0,
+            "blue": 0.3,
+            "alpha": [[0.6, 0.8], [1, 0]]
+          },
+          "offsetY": -0.5,
+          "sizeX": 20,
+          "emissionBursts": 1,
+          "lifetime": 0.15,
+          "emitterLifetime": 0.1,
+          "bLoop": false,
+          "endDistance": 850
+        }
+      }
+    ]
+  },
+  {
+    "target" : "/pa/units/commanders/base_commander/base_commander_ammo_bullet.json",
+    "patch" : [
+      {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/commanders/base_commander/base_commander_bullet_trail.pfx"}},
+      {"op" : "add", "path" : "/events/died", "value" : {}},
+      {"op" : "add", "path" : "/events/died/effect_spec", "value" : "/pa/units/commanders/base_commander/base_commander_bullet_hit.pfx"}
+    ]
+  },
+  {
+    "target" : "/pa/units/commanders/base_commander/base_commander_ammo_laser.json",
+    "patch" : [
+      {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/commanders/base_commander/base_commander_laser_trail.pfx"}},
+      {"op" : "add", "path" : "/events/died/effect_spec", "value" : "/pa/units/commanders/base_commander/base_commander_bullet_hit.pfx"}
+    ]
+  },
+  {
+    "target" : "/pa/units/commanders/base_commander/base_commander_ammo_missile.json",
+    "patch" : [
+      {"op" : "add", "path" : "/fx_trail", "value" : {
+        "filename" : "/pa/units/commanders/base_commander/base_commander_rocket_trail.pfx",
+        "offset": [0.0, 0.9, 0.0]
+      }},
+      {"op" : "add", "path" : "/events/died/effect_spec", "value" : "/pa/units/commanders/base_commander/base_commander_bullet_hit.pfx"}
+    ]
+  },
+  {
+    "target" : "/src/pa/units/land/commander/bullet_trail.pfx",
+    "destination" : "/pa/units/commanders/base_commander/base_commander_bullet_trail.pfx"
+  },
+  {
+    "target" : "/src/pa/units/land/commander/laser_trail.pfx",
+    "destination" : "/pa/units/commanders/base_commander/base_commander_laser_trail.pfx"
+  },
+  {
+    "target" : "/src/pa/units/land/commander/rocket_trail.pfx",
+    "destination" : "/pa/units/commanders/base_commander/base_commander_rocket_trail.pfx"
+  },
+  {
+    "target" : "/src/pa/base_effects/arty_ammo_hit_scale_0.15.pfx",
+    "destination" : "/pa/units/commanders/base_commander/base_commander_bullet_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 0], [0.35, 2]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : [[0, 100], [0.35, 20]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",  "value" : [[0, 0], [0.35, 1]]},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red",   "value" : [[0, 0], [0.35, 2]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : [[0, 100], [0.35, 20]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",  "value" : [[0, 1], [0.35, 4]]},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red",   "value" : [[0, 10], [0.75, 1]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : [[0, 10], [0.75, 10]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue",  "value" : [[0, 0],  [0.75, 0]]},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/red",   "value" : [[0, 3], [0.75, 1]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : [[0, 15], [0.75, 15]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue",  "value" : [[0, 20], [0.75, 5]]},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 0.9},
+      {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 6.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 0.4},
+
+      {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 0.9},
+      {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 6.0},
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 0.7}
+    ]
+  }
+]

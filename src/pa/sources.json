@@ -1,12 +1,16 @@
 [
-    { "from_file" :   "/src/pa/units/land/ant/ant_patch.json"},
-    { "from_file" :   "/src/pa/units/land/inferno/inferno_patch.json"},
-    { "from_file" :   "/src/pa/units/land/leveler/leveler_patch.json"}
+    { "from_file" : "/src/pa/units/land/ant/ant_patch.json"},
+    { "from_file" : "/src/pa/units/land/inferno/inferno_patch.json"},
+    { "from_file" : "/src/pa/units/land/leveler/leveler_patch.json"},
+
+    { "from_file" : "/src/pa/units/land/commander/commander_patch.json"},
+
+    { "from_file" : "/src/pa/units/misc/hover_effect_color_patch.json" },
+    { "from_file" : "/src/pa/units/misc/tactical_missile_patch.json" },
+    { "from_file" : "/src/pa/units/misc/aa_missile_patch.json" }
 ]
 /*
-{ "from_script" : "/land/commander/commander.py"},
 
-{ "from_file" :   "/misc/hover_effect_color.pa_patch" },
 
 { "from_file" :   "/titans/ares/ares.pa_patch" },
 
