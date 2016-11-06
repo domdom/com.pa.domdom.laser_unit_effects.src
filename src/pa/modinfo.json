@@ -7,5 +7,6 @@
   "forum" : "https://forums.uberent.com/threads/rel-client-pa-c-more-pew-pew.69978/",
   "icon" : "http://i.imgur.com/PQOpc3u.gif",
   "category": ["classic", "effects"],
-  "classicOnly": true
+  "classicOnly": true,
+  "version": "1.4.0"
 }

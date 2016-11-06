@@ -7,5 +7,6 @@
   "forum" : "https://forums.uberent.com/threads/rel-client-more-pew-pew.69229/",
   "icon" : "http://i.imgur.com/PQOpc3u.gif",
   "category": ["titans", "effects"],
-  "titansOnly": true
+  "titansOnly": true,
+  "version": "1.4.0"
 }
