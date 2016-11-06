@@ -50,12 +50,19 @@ def generate_mod(is_titans):
 
     process_modinfo('/src/pa/modinfo.json', src, out_dir)
     
+    modinfo = load_json(src, '/src/pa/modinfo.json')
     # mount the mod directory
     src.mount('/mod', out_dir)
 
     sources = load_json(src, '/src/pa/sources.json')
     process_changes(sources, src, out_dir)
     print ('')
+
+    ################# copy mod to pa mod directory
+    import shutil
+    mod_path = os.path.join(paths.PA_DATA_DIR, modinfo['context'] + '_mods', modinfo['identifier'])
+    shutil.rmtree(mod_path, ignore_errors=True)
+    shutil.copytree(out_dir, mod_path)
 
 # generate_mod(False)
 generate_mod(True)
