@@ -2,12 +2,12 @@
   {
     "target": "/pa/units/land/laser_defense_adv/laser_defense_adv.json",
     "patch" : [
-        {"op" : "replace", "path" : "/events/fired/effect_spec", "value" : "/pa/units/lant/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_leftMuzzle /pa/units/lant/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_centerMuzzle /pa/units/lant/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_rightMuzzle"}
+        {"op" : "replace", "path" : "/events/fired/effect_spec", "value" : "/pa/units/land/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_leftMuzzle /pa/units/land/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_centerMuzzle /pa/units/land/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx socket_rightMuzzle"}
     ]
   },
   {
     "target": "/pa/effects/specs/default_muzzle_flash.pfx",
-    "destination" : "/pa/units/lant/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx",
+    "destination" : "/pa/units/land/laser_defense_adv/laser_defense_adv_muzzle_flash.pfx",
     "patch" : [
         {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0.3, 0.1], [1, 0.10]]},
         {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0.3, 0.9], [1, 0.60]]},
