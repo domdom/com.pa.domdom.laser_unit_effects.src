@@ -1,0 +1,17 @@
+[
+  {
+    "target" : "/pa/units/land/bot_grenadier/bot_grenadier_ammo.json",
+    "patch" : [
+      {"op" : "replace", "path" : "/fx_trail/filename", "value" : "/pa/units/land/bot_grenadier/bot_grenadier_ammo_trail.pfx"},
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/bot_grenadier/bot_grenadier_ammo_hit.pfx"}
+    ]
+  },
+  {
+    "target" : "/src/pa/units/bots/grenadier/grenadier_ammo_trail.pfx",
+    "destination" : "/pa/units/land/bot_grenadier/bot_grenadier_ammo_trail.pfx"
+  },
+  {
+    "target" : "/src/pa/units/bots/grenadier/grenadier_ammo_hit.pfx",
+    "destination" : "/pa/units/land/bot_grenadier/bot_grenadier_ammo_hit.pfx"
+  }
+]

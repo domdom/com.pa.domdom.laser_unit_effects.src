@@ -1,0 +1,23 @@
+[
+  {
+    "target" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher.json",
+    "patch" : [
+        {"op" : "replace", "path" : "/events/fired/effect_spec", "value" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_launch.pfx"}
+    ]
+  },
+  {
+    "target" : "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_launch.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/green/keys/0/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/0/spec/green/keys/1/1", "value" : 0.2},
+      
+      {"op" : "replace", "path" : "/emitters/1/spec/green/keys/0/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/1/spec/green/keys/1/1", "value" : 0.2},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/green/keys/0/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/2/spec/green/keys/1/1", "value" : 0.2},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : 0.2}
+    ]
+  }
+]

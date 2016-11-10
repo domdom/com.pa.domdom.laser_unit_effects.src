@@ -36,20 +36,20 @@
     { "from_file" : "/src/pa/units/static/holkins/holkins_patch.json" },
 
     { "from_file" : "/src/pa/misc/tactical_missile_patch.json" },
-    { "from_file" : "/src/pa/misc/aa_missile_patch.json" }
-    
-    ////############################
-    //// Titans
-    ////############################
-    //// Titans
-    // ,{ "from_file" : "/src/pa/units/titans/ares/ares_patch.json" },
-    //// veh units
-    // { "from_file" : "/src/pa/units/land/drifter/drifter_patch.json" },
+    { "from_file" : "/src/pa/misc/aa_missile_patch.json" },
 
-    //// bots
+    //############################
+    // Titans
+    //############################
+    // Titans */
+    { "from_file" : "/src/pa/units/titans/ares/ares_patch.json" },
+    // veh units
+    { "from_file" : "/src/pa/units/land/drifter/drifter_patch.json" },
 
-    //// sea
-    // { "from_file" : "/src/pa/units/sea/kaiju/kaiju_patch.json" },
-    //// misc effects
-    // { "from_file" : "/src/pa/misc/hover_effect_color_patch.json" }
+    // bots
+
+    // sea
+    { "from_file" : "/src/pa/units/sea/kaiju/kaiju_patch.json" },
+    // misc effects
+    { "from_file" : "/src/pa/misc/hover_effect_color_patch.json" }
 ]

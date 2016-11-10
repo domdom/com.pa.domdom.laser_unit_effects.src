@@ -1,0 +1,727 @@
+[
+ {
+    "target": "/pa/units/land/titan_vehicle/titan_vehicle.json",
+    "patch": [
+      {"op" : "replace", "path" : "/events/fired0/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash.pfx bone_main_recoil"},
+
+      {"op" : "replace", "path" : "/events/fired1/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_left_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_left_muzzle02"},
+      {"op" : "replace", "path" : "/events/fired2/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_right_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_right_muzzle02"},
+      {"op" : "replace", "path" : "/events/fired3/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_rear_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_rear_muzzle02"}
+      
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
+    "destination": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx",
+    "patch": [
+      {"op": "add", "path": "/emitters/0/spec/red", "value": 0.1 },
+      {"op": "add", "path": "/emitters/0/spec/green", "value": 1 },
+      {"op": "add", "path": "/emitters/0/spec/blue", "value": 0.25 },
+      {"op": "add", "path": "/emitters/1/spec/red", "value":   [[0.3, 0.5 ], [1, 0.14 ] ] },
+      {"op": "add", "path": "/emitters/1/spec/green", "value": [[0.3, 5 ], [1, 1.00 ] ] },
+      {"op": "add", "path": "/emitters/1/spec/blue", "value":  [[0.3, 0.5 ], [1, 0.50 ] ] },
+
+      {"op": "add", "path": "/emitters/0/sizeX", "value":  3.2 },
+      {"op": "add", "path": "/emitters/1/sizeX", "value":  3.2 },
+      {"op": "add", "path": "/emitters/2/sizeX", "value":  3.2 },
+
+      {"op": "add", "path": "/emitters/0/sizeY", "value":  3.2 },
+      {"op": "add", "path": "/emitters/1/sizeY", "value":  3.2 },
+      {"op": "add", "path": "/emitters/2/sizeY", "value":  3.2 },
+      
+      {"op": "copy", "path": "/emitters/2/spec/red", "from": "/emitters/1/spec/red"},
+      {"op": "copy", "path": "/emitters/2/spec/green", "from": "/emitters/1/spec/green"},
+      {"op": "copy", "path": "/emitters/2/spec/blue", "from": "/emitters/1/spec/blue"},
+      {"op": "copy", "path": "/emitters/3/spec/red", "from": "/emitters/0/spec/red"},
+      {"op": "copy", "path": "/emitters/3/spec/green", "from": "/emitters/0/spec/green"},
+      {"op": "copy", "path": "/emitters/3/spec/blue", "from": "/emitters/0/spec/blue"},
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "pointlight",
+            "red": 0.2,
+            "green": 1.0,
+            "blue": 0.3,
+            "alpha": [[0.6, 0.6], [1, 0]]
+          },
+          "offsetY": -0.5,
+          "sizeX": 30,
+          "emissionBursts": 1,
+          "lifetime": 0.3,
+          "emitterLifetime": 0.1,
+          "bLoop": false,
+          "endDistance": 850
+        }
+      },
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "particle_transparent_lit",
+            "facing" : "velocity",
+            "red": 2,
+            "green": 80,
+            "blue": 3,
+            "alpha": [[0.6, 0.8], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/dot.papa"
+          },
+          "velocityY" : -1,
+          "velocityRangeX" : 0.4,
+          "velocityRangeZ" : 0.4,
+          "velocity" : 22,
+          "velocityRange" : 11,
+          "gravity" : -9.8,
+          "drag" : 0.98,
+          "offsetY": -0.5,
+          "sizeX": 0.2,
+          "sizeY" : 0.7,
+          "emissionBursts": 10,
+          "lifetime": 0.3,
+          "lifetimeRange": 0.2,
+          "emitterLifetime": 0.5,
+          "useWorldSpace" : true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      },
+      {"op" : "add", "path" : "/emitters/-", "value" :  {
+          "spec": {
+            "label": "SPARKS",
+            "shader": "particle_transparent_lit",
+            "facing": "velocity",
+            "sizeX": [[0.5, 1.0 ], [1, 0.0 ] ],
+            "red": [[0, 2 ], [1, 0.66 ] ],
+            "green": [[0, 80 ], [1, 28 ] ],
+            "blue": [[0, 3 ], [1, 1 ] ],
+            "alpha": [[0.75, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/softdot.papa"
+          },
+          "offsetRangeX": 0.01,
+          "offsetRangeZ": 0.7,
+          "velocity": 50,
+          "velocityY": -1,
+          "velocityRangeZ": 0.0,
+          "velocityRange": 40,
+          "gravity": -10.0,
+          "drag": 0.97,
+          "sizeX": 0.2,
+          "sizeY" : 0.7,
+          "lifetime": 0.4,
+          "lifetimeRange": 0.35,
+          "emissionBursts": 20,
+          "useWorldSpace": true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      }
+    ]
+  },
+  {
+    "target" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side.json",
+    "patch" : [
+      {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_trail.pfx"}},
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_hit.pfx"},
+      {"op" : "add", "path" : "/events/died/effect_scale", "value" : 0.7}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/ammo_trail.pfx",
+    "destination": "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_trail.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/spec/red", "value": 0.05 },
+      {"op": "replace", "path": "/emitters/0/spec/green", "value": 7.0 },
+      {"op": "replace", "path": "/emitters/0/spec/blue", "value": 0.1 },
+      {"op": "replace", "path": "/emitters/1/spec/red", "value": 1 },
+      {"op": "replace", "path": "/emitters/1/spec/green", "value": 2 },
+      {"op": "replace", "path": "/emitters/1/spec/blue", "value": 1 },
+
+      {"op": "replace", "path": "/emitters/2/spec/red", "value": [[0, 0.05], [0.5, 0]] },
+      {"op": "replace", "path": "/emitters/2/spec/green", "value": [[0, 7], [0.5, 1]] },
+      {"op": "replace", "path": "/emitters/2/spec/blue", "value": [[0, 0.5], [0.5, 0]] },
+
+      {"op": "scale", "path" : "/emitters/0/sizeX",  "value" : 1},
+      {"op": "scale", "path" : "/emitters/1/sizeX",  "value" : 1},
+
+      {"op": "scale", "path" : "/emitters/2/lifetime",  "value" : 4},
+      {"op": "replace", "path" : "/emitters/2/spec/size",  "value" : [[0,0.7],[0.5, 0]]}
+    ]
+  },
+  {
+    "target" : "/pa/units/sea/battleship/battleship_hit.pfx",
+    "destination" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/rgb/0/2", "value" : [255, 255, 255, 255]},
+      {"op" : "replace", "path" : "/emitters/0/spec/rgb/1/2", "value" : [10, 255, 70, 255]},
+      {"op" : "replace", "path" : "/emitters/0/spec/rgb/2/2", "value" : [10, 255, 70, 0]},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/rgb/0/2", "value" : [10, 255, 255, 255]},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/rgb/0/2", "value" : [150, 255, 255, 150]},
+      {"op" : "replace", "path" : "/emitters/2/spec/rgb/1/2", "value" : [80, 150, 255, 100]},
+      {"op" : "replace", "path" : "/emitters/2/spec/rgb/2/2", "value" : [20, 50, 255, 50]},
+
+      {"op" : "replace", "path" : "/emitters/3/spec/rgb/0/2", "value" : [150, 255, 255, 150]},
+      {"op" : "replace", "path" : "/emitters/3/spec/rgb/1/2", "value" : [80, 150, 255, 100]},
+      {"op" : "replace", "path" : "/emitters/3/spec/rgb/2/2", "value" : [20, 50, 255, 50]},
+
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+        "spec" : {
+          "shader" : "particle_add",
+          "red" : 0.8,
+          "green" : 10,
+          "blue" : 1,
+          "alpha" : [[0, 1], [1, 0]],
+          "cameraPush" : 1,
+          "baseTexture" : "/pa/effects/textures/particles/softdot.papa"
+        },
+        "emissionBursts" : 1,
+        "endDistance" : 2000,
+        "sizeX" : 3,
+        "lifetime" : 0.25,
+        "bLoop" : false
+      }},
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+          "spec": {
+            "shader": "particle_add",
+            "facing": "EmitterZ",
+            "size": [[0, 0], [0.2, 0.667], [0.4, 0.889], [0.6, 0.963], [0.8, 0.98], [1, 1]],
+            "red": 0.23,
+            "green": 5.0,
+            "blue": 0.7,
+            "alpha": [[0.2, 2], [0.3, 1], [0.6, 0.5], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/simpleExplosionRing.papa",
+            "cameraPush": 0.2,
+            "dataChannelFormat": "PositionAndColor"
+          },
+          "offsetZ": 1,
+          "sizeX": 8,
+          "sizeRangeX": 4,
+          "emissionBursts": 1,
+          "rotationRange": 3.1415,
+          "lifetime": 0.4,
+          "emitterLifetime": 1,
+          "bLoop": false,
+          "endDistance": 1000
+        }}
+    ]
+  },
+  {
+    "target": "/pa/units/land/titan_vehicle/titan_vehicle_main_muzzle_flash.pfx",
+    "destination": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/0/spec/rgb/1", "value" : [10, 100, 255]},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/3/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/3/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue", "value" : 10.0},
+
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/5/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/6/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/6/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/6/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/7/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/7/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/7/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/8/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/8/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/8/spec/blue/1/1", "value" : 10.0},
+
+
+      {"op" : "replace", "path" : "/emitters/9/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/9/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/9/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/10/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/10/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/10/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/11/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/11/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/11/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/12/spec/red/1/1", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/12/spec/green/1/1", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/12/spec/blue/1/1", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/13/spec/rgb/0/2", "value" : [128, 128, 255]},
+
+      {"op" : "replace", "path" : "/emitters/15/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/15/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/15/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/16/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/16/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/16/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/17/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/17/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/17/spec/blue", "value" : 10.0},
+
+      {"op" : "replace", "path" : "/emitters/18/spec/red", "value" : 0.5},
+      {"op" : "replace", "path" : "/emitters/18/spec/green", "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/18/spec/blue", "value" : 10.0},
+
+
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "particle_transparent_lit",
+            "facing" : "velocity",
+            "red": 2,
+            "green": 1,
+            "blue": 80,
+            "alpha": [[0.6, 0.8], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/dot.papa"
+          },
+          "velocityY" : -1,
+          "velocityRangeX" : 0.4,
+          "velocityRangeZ" : 0.4,
+          "velocity" : 40,
+          "velocityRange" : 10,
+          "gravity" : -10,
+          "drag" : 0.98,
+          "sizeX": 0.2,
+          "sizeY" : 2,
+          "sizeRangeY" : 0.5,
+          "emissionBursts": 20,
+          "lifetime": 0.5,
+          "lifetimeRange": 0.2,
+          "emitterLifetime": 0.5,
+          "useWorldSpace" : true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      },
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/19"},
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/19"},
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/19"},
+
+      {"op" : "add", "path" : "/emitters/-", "value" :  {
+          "spec": {
+            "label": "SPARKS",
+            "shader": "particle_transparent_lit",
+            "facing": "velocity",
+            "sizeX": [[0.5, 1.0 ], [1, 0.0 ] ],
+            "red": [[0, 2 ], [1, 0.66 ] ],
+            "green": [[0, 1 ], [1, 0.33 ] ],
+            "blue": [[0, 90 ], [1, 30 ] ],
+            "alpha": [[0.75, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/softdot.papa"
+          },
+          "offsetRangeX": 0.01,
+          "offsetRangeZ": 0.7,
+          "velocity": 60,
+          "velocityY": -1,
+          "velocityRangeZ": 0.0,
+          "velocityRange": 50,
+          "gravity": -10.0,
+          "drag": 0.96,
+          "sizeX": 0.2,
+          "sizeY" : 2,
+          "lifetime": 0.5,
+          "lifetimeRange": 0.35,
+          "emissionBursts": 15,
+          "useWorldSpace": true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      },
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/23"},
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/23"},
+      {"op" : "copy", "path" : "/emitters/-", "from" : "/emitters/23"},
+
+
+      {"op" : "copy", "path" : "/emitters/19/offsetX", "from" : "/emitters/1/offsetX"},
+      {"op" : "copy", "path" : "/emitters/20/offsetX", "from" : "/emitters/2/offsetX"},
+      {"op" : "copy", "path" : "/emitters/21/offsetX", "from" : "/emitters/3/offsetX"},
+      {"op" : "copy", "path" : "/emitters/22/offsetX", "from" : "/emitters/4/offsetX"},
+      {"op" : "copy", "path" : "/emitters/19/offsetY", "from" : "/emitters/1/offsetY"},
+      {"op" : "copy", "path" : "/emitters/20/offsetY", "from" : "/emitters/2/offsetY"},
+      {"op" : "copy", "path" : "/emitters/21/offsetY", "from" : "/emitters/3/offsetY"},
+      {"op" : "copy", "path" : "/emitters/22/offsetY", "from" : "/emitters/4/offsetY"},
+
+      {"op" : "copy", "path" : "/emitters/23/offsetX", "from" : "/emitters/1/offsetX"},
+      {"op" : "copy", "path" : "/emitters/24/offsetX", "from" : "/emitters/2/offsetX"},
+      {"op" : "copy", "path" : "/emitters/25/offsetX", "from" : "/emitters/3/offsetX"},
+      {"op" : "copy", "path" : "/emitters/26/offsetX", "from" : "/emitters/4/offsetX"},
+      {"op" : "copy", "path" : "/emitters/23/offsetY", "from" : "/emitters/1/offsetY"},
+      {"op" : "copy", "path" : "/emitters/24/offsetY", "from" : "/emitters/2/offsetY"},
+      {"op" : "copy", "path" : "/emitters/25/offsetY", "from" : "/emitters/3/offsetY"},
+      {"op" : "copy", "path" : "/emitters/26/offsetY", "from" : "/emitters/4/offsetY"}
+
+    ]
+  },
+  {
+    "target" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main.json",
+    "patch" : [
+      {"op" : "replace", "path" : "/fx_trail/filename", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_trail.pfx"},
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_hit.pfx"},
+      {"op" : "add", "path" : "/events/died/effect_scale", "value" : 0.7}
+    ]
+  },
+  {
+    "target": "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_proj_trail.pfx",
+    "destination": "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_trail.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/0/spec/rgb/1", "value" : [128, 10, 500]},
+      {"op" : "add", "path" : "/emitters/0", "value" : {
+        "spec" : {
+            "shader" : "particle_add",
+            "facing" : "velocity",
+            "red" : 1,
+            "green" : 1,
+            "blue" : 10,
+            "size" : [[0, 1], [1, 0]],
+            "alpha" : [[0, 0.05], [1, 0]],
+            "baseTexture" : "/pa/effects/textures/particles/softdot.papa"
+        },
+        "velocityY" : 1,
+        "sizeX" : 15,
+        "sizeY" : 30,
+        "lifetime" : 0.6,
+        "emissionRate" : 30,
+        "useWorldSpace" : true,
+        "endDistance" : 2000,
+        "delayRange" : 0.05,
+        "delay" : 0.05,
+        "bLoop" : true
+      }},
+      {"op" : "add", "path" : "/emitters/0", "value" : {
+        "spec" : {
+            "shader" : "particle_add_ramp",
+            "facing" : "velocity",
+            "red" : 0.5,
+            "green" : 0.1,
+            "blue" : 10,
+            "sizeX" : [[0, 1]],
+            "sizeY" : [[0, 1], [1, 0.3]],
+            "alpha" : [[0, 0], [0.1, 6], [1, 0]],
+            "baseTexture" : "/pa/effects/textures/particles/flat.papa",
+            "rampTexture" : "/pa/effects/textures/particles/uncompressed/no_ramp.papa"
+        },
+        "velocityY" : 1,
+        "sizeX" : 0.1,
+        "sizeY" : 4,
+        "sizeRangeY" : 1,
+        "gravity" : -0,
+        "lifetime" : 0.3,
+        "type" : "CYLINDER_Y",
+        "offsetX" : 2,
+        "offsetZ" : 2,
+        "emissionRate" : 30,
+        "offsetRangeX" : 0.1,
+        "offsetRangeZ" : 0.1,
+        "offsetRangeY" : 1,
+        "useWorldSpace" : true,
+        "endDistance" : 2000,
+        "delayRange" : 0.05,
+        "delay" : 0.05,
+        "bLoop" : true
+      }},
+      {"op" : "copy", "path" : "/emitters/0", "from" : "/emitters/0"},
+      {"op" : "copy", "path" : "/emitters/0", "from" : "/emitters/0"},
+      {"op" : "copy", "path" : "/emitters/0", "from" : "/emitters/0"},
+
+      {"op" : "replace", "path" : "/emitters/0/offsetX", "value" : 0},
+      {"op" : "replace", "path" : "/emitters/0/offsetZ", "value" : 0},
+      {"op" : "scale",   "path" : "/emitters/0/lifetime", "value" : 2},
+      {"op" : "scale",   "path" : "/emitters/0/sizeY", "value" : 2},
+
+      {"op" : "replace", "path" : "/emitters/1/offsetX", "value" : 0.7},
+      {"op" : "replace", "path" : "/emitters/1/offsetZ", "value" : 0.7},
+      {"op" : "scale",   "path" : "/emitters/1/lifetime", "value" : 1.6},
+      {"op" : "scale",   "path" : "/emitters/2/sizeY", "value" : 1.6},
+
+      {"op" : "replace", "path" : "/emitters/2/offsetX", "value" : 1.3},
+      {"op" : "replace", "path" : "/emitters/2/offsetZ", "value" : 1.3},
+      {"op" : "scale",   "path" : "/emitters/2/lifetime", "value" : 1.3},
+      {"op" : "scale",   "path" : "/emitters/2/sizeY", "value" : 1.3}
+    ]
+  },
+  {
+    "target": "/pa/units/sea/battleship/battleship_hit.pfx",
+    "destination" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters",     "value" : [
+        {
+          "spec" : {
+              "shader" : "particle_transparent_lit",
+              "facing" : "velocity",
+              "red" : 0.5,
+              "green" : 0.1,
+              "blue" : 10,
+              "sizeX" : [[0, 1]],
+              "sizeY" : [[0, 1], [1, 0.3]],
+              "alpha" : [[0, 0], [0.1, 6], [1, 0]],
+              "baseTexture" : "/pa/effects/textures/particles/flat.papa"
+          },
+          "type" : "SHELL",
+          "offsetRangeX" : 1,
+          "offsetRangeY" : 1,
+          "offsetRangeZ" : 1,
+          "useRadialVelocityDir" : true,
+
+          "velocity" : 120,
+          "drag" : 0.9,
+
+          "sizeX" : 0.1,
+          "sizeY" : 7,
+          "sizeRangeY" : 2,
+          "gravity" : -10,
+          "lifetime" : 0.6,
+          "emissionBursts" : 30,
+          "useWorldSpace" : true,
+          "endDistance" : 2000,
+          "delay" : 0.2,
+          "bLoop" : false
+        },
+        {
+          "spec": {
+            "shader": "particle_clip",
+            "shape": "mesh",
+            "facing": "EmitterZ",
+            "red": [[0, 10], [0.6, 1.5]],
+            "green": [[0, 5], [0.6, 1]],
+            "blue": [[0, 100], [0.6, 20]],
+            "alpha": [[0, 1], [0.8, 0.5], [1, 0]],
+            "size": [[0, 1], [0.1, 1], [0.2, 1.8], [0.3, 1.9], [0.4, 1.2], [0.5, 0]],
+            "papa": "/pa/effects/fbx/particles/sphere_ico16seg.papa",
+            "materialProperties": {
+              "Texture": "/pa/effects/textures/particles/flat.papa"
+            }
+          },
+          "sizeX": 4,
+          "sizeY": 4,
+          "rotationRange": 3.2,
+          "lifetime": 0.9,
+          "emissionBursts": 1,
+          "bLoop": false,
+          "endDistance": 2000
+        },
+        {
+          "label" : "flare a",
+          "spec": {
+            "shader": "particle_add",
+            "facing" : "EmitterZ",
+            "red": 0.5,
+            "green": 0.1,
+            "blue": 0.7,
+            "alpha": [[0, 0.4 ], [1, 0 ] ],
+            "sizeX": [[0, 0.875 ], [1, 1 ] ],
+            "cameraPush" : 0.02,
+            "baseTexture": "/pa/effects/textures/particles/soft_flare.papa"
+          },
+          "sizeX": 80,
+          "emissionBursts": 1,
+          "maxParticles": 3,
+          "rotationRange": 3.1416,
+          "lifetime": 1.1,
+          "bLoop": false,
+          "endDistance": 2000
+        },
+        {
+          "label" : "flare b",
+          "spec": {
+            "shader": "particle_add",
+            "facing" : "EmitterZ",
+            "red": 0.1,
+            "green": 0.1,
+            "blue": 1.0,
+            "alpha": [[0, 0.4 ], [1, 0 ] ],
+            "sizeX": [[0, 0.875 ], [1, 1 ] ],
+            "cameraPush" : 0.02,
+            "baseTexture": "/pa/effects/textures/particles/soft_flare.papa"
+          },
+          "sizeX": 90,
+          "emissionBursts": 1,
+          "maxParticles": 3,
+          "rotationRange": 3.1416,
+          "lifetime": 1.0,
+          "bLoop": false,
+          "endDistance": 2000
+        },
+        {
+          "spec": {
+            "shader": "particle_add",
+            "facing": "EmitterZ",
+            "size": [[0, 0.4 ], [0.2, 0.667 ], [0.4, 0.9 ], [0.6, 1.2 ], [1, 1.6 ] ],
+            "red": 1,
+            "green": 0.5,
+            "blue": 80,
+            "alpha": [[0.2, 2 ], [0.3, 1 ], [0.6, 0.5 ], [0.9, 0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/simpleExplosionRing.papa",
+            "cameraPush" : 0.2,
+            "dataChannelFormat": "PositionAndColor"
+          },
+          "delay" : 0.1,
+          "offsetZ": 1,
+          "sizeX": 30,
+          "sizeRangeX" : 10,
+          "emissionBursts": 1,
+          "rotationRange": 3.1415,
+          "lifetime": 1,
+          "emitterLifetime": 1,
+          "bLoop": false,
+          "endDistance": 1000
+        },
+        {
+          "spec": {
+            "label": "ARC ELECTRICITY",
+            "shader": "particle_transparent",
+            "facing": "velocity",
+            "flipBookColumns": 4,
+            "flipBookRows": 1,
+            "frameCurve": [[0, 0 ], [1, 0.75 ] ],
+            "flipBookRandomStart": true,
+            "polyAdjustCenter": 0.5,
+            "alpha": [[0.75, 0.7 ], [1, 0.0 ] ],
+            "sizeX": [[0.5, 1.0 ], [1, 0.5 ] ],
+            "sizeY": [[0.0, 1.0 ], [1, 1.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/teslaArc.papa"
+          },
+          "type": "cylinder_z",
+          "red": [[0.0, 10.0 ], [0.2, 2.0 ], [1, 0.7 ] ],
+          "green": [[0.0, 2.0 ], [0.2, 0.4 ], [1, 0.2 ] ],
+          "blue": [[0.0, 1.0 ], [0.2, 0.1 ], [1, 0.1 ] ],
+          "offsetX": 0.001,
+          "offsetY": 0.001,
+          "useRadialVelocityDir": true,
+          "velocity": 0.001,
+          "sizeX": 4.0,
+          "sizeY": [[0.0, 13 ], [1, 12.0 ] ],
+          "lifetime": 0.4,
+          "lifetimeRange": 0.1,
+          "emissionBursts": 5,
+          "emissionRate": 10,
+          "emitterLifetime": 0.7,
+          "bLoop": false,
+          "endDistance": 3000
+        },
+        {
+          "spec": {
+            "label": "tearDrop ring",
+            "shader": "particle_transparent_lit",
+            "facing": "velocity",
+            "red": [[0.0, 10.0 ], [0.2, 1.0 ], [1, 1.0 ] ],
+            "green": [[0.0, 10.0 ], [0.2, 1.0 ], [1, 1.0 ] ],
+            "blue": [[0.0, 80 ], [1, 3.0 ] ],
+            "alpha": [[0.5, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/tearDrop.papa"
+          },
+          "type": "cylinder_z",
+          "offsetX": 0.001,
+          "offsetY": 0.001,
+          "useRadialVelocityDir": true,
+          "offsetAllowNegZ": false,
+          "velocity": 24,
+          "sizeX": 1,
+          "sizeY": 4,
+          "lifetime": 1.2,
+          "lifetimeRange": 0,
+          "emissionBursts": 0,
+          "bLoop": false,
+          "endDistance": 3000
+        },
+        {
+          "spec": {
+            "label": "SPARKS",
+            "shader": "particle_transparent",
+            "facing": "velocity",
+            "red": [[0.0, 7.0 ], [0.2, 2.0 ], [1, 1.5 ] ],
+            "green": [[0.0, 7.0 ], [0.2, 1.0 ], [1, 1.0 ] ],
+            "blue": [[0.0, 10 ], [0.2, 7 ], [1, 5 ] ],
+            "alpha": [[0.75, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/tearDrop.papa"
+          },
+          "offsetRangeX": 1.0,
+          "offsetRangeY": 1.0,
+          "offsetZ": 1,
+          "useRadialVelocityDir": true,
+          "offsetAllowNegZ": false,
+          "velocity": 50,
+          "velocityRange": 20,
+          "gravity": -45.0,
+          "drag": [[0.35, 0.98 ], [0.5, 1 ] ],
+          "sizeX": 0.4,
+          "sizeY": 2.0,
+          "delay" : 0.2,
+          "lifetime": 0.8,
+          "lifetimeRange": 0.5,
+          "emissionBursts": 25,
+          "bLoop": false,
+          "endDistance": 3000
+        },
+        {
+          "spec": {
+            "label": "SMOKE RING",
+            "shader": "particle_transparent_lit",
+            "size": [[0, 0 ], [0.05, 1 ], [0.15, 1.15 ], [0.25, 1.2 ], [0.35, 1.15 ], [0.45, 0.98 ], [1, 0.8 ] ],
+            "rgb": [[0.0, 50, [255,255, 255, 1 ] ], [1, 1, [1, 10, 100, 0 ] ] ],
+            "rotationRateMult": [[0, 1 ], [1, 0.2 ] ],
+            "cameraPush": 0.7,
+            "baseTexture": "/pa/effects/textures/particles/simpleSmoke.papa",
+            "dataChannelFormat": "PositionAndColor"
+          },
+          "type": "CYLINDER_Z",
+          "offsetX": 7,
+          "offsetY": 7,
+          "offsetZ": 1,
+          "offsetRangeX": 1,
+          "offsetRangeY": 1,
+          "offsetAllowNegZ": false,
+          "velocityZ": -0.0,
+          "velocityRangeX": 0.1,
+          "velocityRangeY": 0.1,
+          "useRadialVelocityDir": true,
+          "velocity": 15,
+          "sizeX": 6,
+          "sizeRangeX": 2,
+          "gravity": -0.5,
+          "rampV": 0.875,
+          "drag": 0.985,
+          "delay": 0.3,
+          "emissionBursts": {
+            "count": 20
+          },
+          "rotationRange": 0.1,
+          "rotationRateRange": 0.25,
+          "lifetime": 1.7,
+          "lifetimeRange": 0.25,
+          "emitterLifetime": 2,
+          "bLoop": false,
+          "endDistance": 2500
+        },
+        {
+          "spec": {
+              "shape": "pointlight",
+              "red": 0.5,
+              "green": 0.1,
+              "blue": 10,
+              "alpha": [[0, 3 ], [0.25, 1 ], [1, 0 ] ]
+          },
+          "offsetZ" : 10,
+          "sizeX": 50,
+          "emissionBursts": 1,
+          "lifetime": 1.2,
+          "emitterLifetime": 0.5,
+          "bLoop": false,
+          "endDistance": 3000
+        }
+      ]}
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "target" : "/src/pa/units/sea/torpedo/torpedo_trail.pfx",
+    "destination" : "/pa/units/sea/torpedo/torpedo_trail.pfx"
+  },
+  {
+    "target" : "/pa/ammo/torpedo/torpedo.json",
+    "patch" : [
+      {"op" : "replace", "path" : "/fx_trail/filename", "value" : "/pa/units/sea/torpedo/torpedo_trail.pfx"},
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/torpedo/torpedo_hit.pfx"}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.15.pfx",
+    "destination" : "/pa/units/sea/torpedo/torpedo_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 100], [0.35, 4]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : [[0, 10 ], [0.35, 2]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",  "value" : [[0, 30 ], [0.35, 2]]},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red",   "value" : [[0, 100], [0.35, 20]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green", "value" : [[0, 10 ], [0.35, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",  "value" : [[0, 30 ], [0.35, 2 ]]},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/red",   "value" : [[0, 10], [0.75, 10]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/green", "value" : [[0, 3 ], [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue",  "value" : [[0, 8 ], [0.75, 5 ]]},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red",   "value" : [[0, 10], [0.75, 1  ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : [[0, 1 ], [0.75, 0.5]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue",  "value" : [[0, 1 ], [0.75, 0.5]]},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 6.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.4},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 0.1}
+    ]
+  }
+]

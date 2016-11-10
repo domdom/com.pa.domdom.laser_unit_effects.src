@@ -1,0 +1,225 @@
+[
+ {
+    "target": "/pa/units/sea/destroyer/destroyer_ammo.json",
+    "patch": [
+      {"op": "add", "path": "/events", "value": {
+        "died": {
+          "audio_cue": "/SE/Impacts/missile_destroyer",
+          "effect_spec": "/pa/units/sea/destroyer/destroyer_ammo_hit.pfx",
+          "effect_scale" : 0.2
+        }
+      }},
+      {"op": "add", "path": "/fx_trail", "value": {
+        "filename": "/pa/units/sea/destroyer/destroyer_ammo_trail.pfx",
+        "offset": [0.0, 0.0, 0.0]
+      }}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/arty_ammo_trail.pfx",
+    "destination" : "/pa/units/sea/destroyer/destroyer_ammo_trail.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : 0.2},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : 1.6},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : 2.0},
+      {"op" : "replace", "path" : "/emitters/0/spec/size/2/0",    "value" : 0.7},
+
+
+
+      {"op" : "copy", "path" : "/emitters/1/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/2/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/3/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/4/spec", "from" : "/emitters/0/spec"},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red", "value" : [[0, 0.2], [1, 0.0]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : 0.4},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue", "value" : 4.0},
+
+      {"op" : "scale", "path" : "/emitters/0/emissionRate", "value" : 0.3},
+      {"op" : "scale", "path" : "/emitters/1/emissionRate", "value" : 0.3},
+      {"op" : "scale", "path" : "/emitters/2/emissionRate", "value" : 0.3},
+      {"op" : "scale", "path" : "/emitters/3/emissionRate", "value" : 0.3},
+      {"op" : "scale", "path" : "/emitters/4/emissionRate", "value" : 0.3},
+      {"op" : "scale", "path" : "/emitters/5/emissionRate", "value" : 0.3},
+
+
+      {"op" : "scale", "path" : "/emitters/0/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/1/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/2/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/3/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/4/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/5/lifetime", "value" : 0.25},
+      {"op" : "scale", "path" : "/emitters/5/sizeX", "value" : 0.8},
+
+
+      {"op" : "remove", "path" : "/emitters/0/offsetX"},
+      {"op" : "remove", "path" : "/emitters/1/offsetX"},
+      {"op" : "remove", "path" : "/emitters/2/offsetX"},
+      {"op" : "remove", "path" : "/emitters/3/offsetX"},
+      {"op" : "remove", "path" : "/emitters/4/offsetX"},
+      {"op" : "remove", "path" : "/emitters/0/offsetZ"},
+      {"op" : "remove", "path" : "/emitters/1/offsetZ"},
+      {"op" : "remove", "path" : "/emitters/2/offsetZ"},
+      {"op" : "remove", "path" : "/emitters/3/offsetZ"},
+      {"op" : "remove", "path" : "/emitters/4/offsetZ"},
+
+      {"op" : "add", "path" : "/emitters/0/offsetRangeX", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/1/offsetRangeX", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/2/offsetRangeX", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/3/offsetRangeX", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/4/offsetRangeX", "value" : 0.6},
+
+      {"op" : "add", "path" : "/emitters/0/offsetRangeZ", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/1/offsetRangeZ", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/2/offsetRangeZ", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/3/offsetRangeZ", "value" : 0.6},
+      {"op" : "add", "path" : "/emitters/4/offsetRangeZ", "value" : 0.6}
+    ]
+  },
+    {
+    "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
+    "destination" : "/pa/units/sea/destroyer/destroyer_ammo_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0, 10 ], [0.35, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0, 60 ], [0.35, 4 ]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0, 80 ], [0.35, 10]]},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0, 10 ], [0.35, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0, 50 ], [0.35, 10 ]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",    "value" : [[0, 100 ], [0.35, 10]]},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/red",     "value" : [[0, 3 ], [0.75, 20 ]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/green",   "value" : [[0, 15 ], [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue",    "value" : [[0, 20 ], [0.75, 5]]},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red",     "value" : [[0, 1 ], [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green",   "value" : [[0, 5 ], [0.75, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue",    "value" : [[0, 10 ], [0.75, 10]]},
+
+
+      {"op" : "scale", "path" : "/emitters/3/sizeX",   "value" : 2.0},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 6.0},
+
+      {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0}
+    ]
+  },
+  {
+    "target": "/pa/units/sea/destroyer/destroyer.json",
+    "patch": [
+      {
+        "op": "add",
+        "path": "/events/fired0/effect_spec",
+        "value": "/pa/units/sea/destroyer/destroyer_muzzle_flash.pfx socket_rightMuzzle01 /pa/units/sea/destroyer/destroyer_muzzle_flash.pfx socket_leftMuzzle01"
+      },
+      {
+        "op": "add",
+        "path": "/events/fired1/effect_spec",
+        "value": "/pa/units/sea/destroyer/destroyer_muzzle_flash.pfx socket_rightMuzzle02 /pa/units/sea/destroyer/destroyer_muzzle_flash.pfx socket_leftMuzzle02"
+      }
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
+    "destination": "/pa/units/sea/destroyer/destroyer_muzzle_flash.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/1/spec/shader",  "value" : "particle_add"},
+      {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0.3, 0.2], [1, 0.20]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0.3, 1.6], [1, 1.00]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",    "value" : [[0.3, 4.2], [1, 1.90]]},
+      {"op" : "scale", "path" : "/emitters/1/sizeX",    "value" : 1},
+      {"op" : "scale", "path" : "/emitters/1/offsetY",    "value" : 1.2},
+
+      {"op" : "replace", "path" : "/emitters/0/spec/shader",  "value" : "particle_add"},
+      {"op" : "copy", "path" : "/emitters/0/spec/red",    "from" : "/emitters/1/spec/red/0/1"},
+      {"op" : "copy", "path" : "/emitters/0/spec/green",  "from" : "/emitters/1/spec/green/0/1"},
+      {"op" : "copy", "path" : "/emitters/0/spec/blue",   "from" : "/emitters/1/spec/blue/0/1"},
+      {"op" : "scale", "path" : "/emitters/0/sizeX",    "value" : 1},
+      {"op" : "scale", "path" : "/emitters/0/offsetY",    "value" : 1.2},
+
+      {"op" : "copy", "path" : "/emitters/2/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/2/spec/green",  "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/2/spec/blue",   "from" : "/emitters/0/spec/blue"},
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "pointlight",
+            "red": 0,
+            "green": 1.1,
+            "blue": 2.2,
+            "alpha": [[0.2, 0.8], [1, 0]]
+          },
+          "offsetY": 0,
+          "sizeX": 10,
+          "emissionBursts": 1,
+          "lifetime": 0.6,
+          "emitterLifetime": 0.1,
+          "bLoop": false,
+          "endDistance": 850
+        }
+      },
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "particle_transparent_lit",
+            "facing" : "velocity",
+            "red": 2,
+            "green": 5,
+            "blue": 70,
+            "alpha": [[0.6, 0.8], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/dot.papa"
+          },
+          "velocityY" : -1,
+          "velocityRangeX" : 0.4,
+          "velocityRangeZ" : 0.4,
+          "velocity" : 22,
+          "velocityRange" : 11,
+          "gravity" : -9.8,
+          "drag" : 0.98,
+          "offsetY": -0.5,
+          "sizeX": 0.2,
+          "sizeY" : 0.7,
+          "emissionBursts": 10,
+          "lifetime": 0.3,
+          "lifetimeRange": 0.2,
+          "emitterLifetime": 0.5,
+          "useWorldSpace" : true,
+          "bLoop": false,
+          "endDistance": 300
+        }
+      },
+      {"op" : "add", "path" : "/emitters/-", "value" :  {
+          "spec": {
+            "label": "SPARKS",
+            "shader": "particle_transparent_lit",
+            "facing": "velocity",
+            "sizeX": [[0.5, 1.0 ], [1, 0.0 ] ],
+            "red": [[0, 2 ], [1, 0.66 ] ],
+            "green": [[0, 5 ], [1, 1 ] ],
+            "blue": [[0, 80 ], [1, 28 ] ],
+            "alpha": [[0.75, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/softdot.papa"
+          },
+          "offsetRangeX": 0.01,
+          "offsetRangeZ": 0.7,
+          "velocity": 50,
+          "velocityY": -1,
+          "velocityRangeZ": 0.0,
+          "velocityRange": 40,
+          "gravity": -10.0,
+          "drag": 0.97,
+          "sizeX": 0.2,
+          "sizeY" : 0.7,
+          "lifetime": 0.4,
+          "lifetimeRange": 0.35,
+          "emissionBursts": 20,
+          "useWorldSpace": true,
+          "bLoop": false,
+          "endDistance": 300
+        }
+      }
+    ]
+  }
+]

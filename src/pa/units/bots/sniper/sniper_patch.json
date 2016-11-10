@@ -1,0 +1,246 @@
+[
+  {
+    "target": "/pa/units/land/bot_sniper/bot_sniper.json",
+    "patch": [
+      {
+        "op": "replace",
+        "path": "/events/fired0/effect_spec",
+        "value": "/pa/units/land/bot_sniper/bot_sniper_muzzle_flash.pfx socket_muzzle01"
+      }
+    ]
+  },
+  {
+    "target": "/pa/units/land/bot_sniper/bot_sniper_ammo.json",
+    "patch": [
+      {"op": "add", "path": "/fx_beam_spec", "value": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx"},
+      {"op": "add", "path": "/fx_collision_spec", "value" : "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx"},
+
+      {"op": "add", "path": "/events", "value" : {
+        "died": {
+          "audio_cue": "/SE/Impacts/shell_bullet",
+          "effect_spec": "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx"
+        }
+      }},
+      {"op": "add", "path": "/fx_trail", "value" : {
+        "filename": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx"
+      }}
+    ]
+  },
+  {
+      "target": "/pa/effects/specs/default_muzzle_flash.pfx",
+      "destination" : "/pa/units/land/bot_sniper/bot_sniper_muzzle_flash.pfx",
+      "patch" : [
+          {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0.3, 0.1], [1, 0.10]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0.3, 0.9], [1, 0.30]]},
+          {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0.3, 10], [1, 3.00]]},
+
+          {"op" : "copy", "path" : "/emitters/1/spec/red",    "from" : "/emitters/0/spec/red"},
+          {"op" : "copy", "path" : "/emitters/1/spec/green",  "from" : "/emitters/0/spec/green"},
+          {"op" : "copy", "path" : "/emitters/1/spec/blue",   "from" : "/emitters/0/spec/blue"},
+
+          {"op" : "copy", "path" : "/emitters/2/spec/red",    "from" : "/emitters/0/spec/red"},
+          {"op" : "copy", "path" : "/emitters/2/spec/green",  "from" : "/emitters/0/spec/green"},
+          {"op" : "copy", "path" : "/emitters/2/spec/blue",   "from" : "/emitters/0/spec/blue"},
+
+          {"op" : "copy", "path" : "/emitters/3/spec/red",    "from" : "/emitters/0/spec/red"},
+          {"op" : "copy", "path" : "/emitters/3/spec/green",  "from" : "/emitters/0/spec/green"},
+          {"op" : "copy", "path" : "/emitters/3/spec/blue",   "from" : "/emitters/0/spec/blue"},
+
+          {"op" : "add",  "path" : "/emitters/-", "value" : {
+            "spec" : {
+              "shader" : "particle_add",
+              "facing" : "velocity",
+              "red" : 1,
+              "green" : 1,
+              "blue" : 2,
+              "alpha" : [[0, 0], [0.1, 1], [0.7, 1], [1, 0]],
+              "baseTexture" : "/pa/effects/textures/particles/dot.papa",
+              "dataChannelFormat" : "PositionColorAndAlignVector"
+            },
+            "red" : [[0, 1], [4, 0.2]],
+            "green" : [[0, 1], [4, 3]],
+            "blue" : [[0, 10], [4, 10]],
+            "type" : "SHELL",
+            "sizeX" : 0.1,
+            "sizeY" : [[0, 0.5], [4, 2]],
+            "offsetRangeX" : 10,
+            "offsetRangeY" : 10,
+            "offsetRangeZ" : 10, 
+            "velocity" : [[0, -20], [4, -50]],
+            "lifetime" : [[0, 0.5], [4, 0.2]],
+            "useRadialVelocityDir" : true,
+            "emissionRate" : [[0.5, 0], [3.0, 20], [3.8, 0]],
+            "emitterLifetime" : 4,
+            "bLoop" : false
+          }},
+          {"op" : "copy", "path" : "/emitters/-",   "from" : "/emitters/4"},
+          {"op" : "add",  "path" : "/emitters/-", "value" : {
+            "spec" : {
+              "shader" : "particle_add",
+              "facing" : "EmitterY",
+              "red" : 1,
+              "green" : 1,
+              "blue" : 10.0,
+              "baseTexture" : "/pa/effects/textures/particles/ring.papa"
+            },
+            "red" : [[0, 0.5], [4, 1]],
+            "green" : [[0, 1], [4, 3]],
+            "blue" : [[0, 4], [4, 10]],
+            "sizeX" : 0.6,
+            "velocityY" : 1,
+            "velocity" : [[0, 2], [4, 10]],
+            "lifetime" : [[0, 2.4], [4, 0.4]],
+            "emissionRate" : [[0.5, 0], [3.0, 10], [3.8, 0]],
+            "emitterLifetime" : 4,
+            "bLoop" : false
+          }},
+          {"op" : "add",  "path" : "/emitters/-", "value" : {
+            "spec" : {
+              "shader" : "particle_add",
+              "cameraPush" : 1,
+              "red" : [[0, 0.5], [4, 1]],
+              "green" : [[0, 1], [4, 3]],
+              "blue" : [[0, 4], [4, 10]],
+              "size" : [[0.125, 0], [0.95, 1], [1, 0]],
+              "baseTexture" : "/pa/effects/textures/particles/softdot.papa"
+            },
+            "sizeX" : 2,
+            "lifetime" : 4,
+            "emissionBursts" : 1,
+            "emitterLifetime" : 4,
+            "bLoop" : false
+          }}
+      ]
+  },
+  {
+    "target": "/src/pa/base_effects/ammo_hit.pfx",
+    "destination": "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/spec/red", "value": 1.2 },
+      {"op": "replace", "path": "/emitters/0/spec/green", "value": 0.8 },
+      {"op": "replace", "path": "/emitters/0/spec/blue", "value": 4.0 },
+
+      {"op": "scale", "path": "/emitters/0/emissionBursts", "value": 1.5 },
+      {"op": "scale", "path": "/emitters/0/velocityRange", "value": 2.0 },
+
+      {"op": "scale", "path": "/emitters/0/sizeX", "value": 1 },
+      {"op": "copy", "path": "/emitters/0/sizeRangeX", "from": "/emitters/0/sizeX" },
+      {"op": "scale", "path": "/emitters/0/sizeRangeX", "value": 0.4 },
+
+      {"op": "scale", "path": "/emitters/0/sizeY", "value": 1.5 },
+      {"op": "copy", "path": "/emitters/0/sizeRangeY", "from": "/emitters/0/sizeY" },
+      {"op": "scale", "path": "/emitters/0/sizeRangeY", "value": 0.4 },
+
+      {"op": "copy", "path": "/emitters/1/spec/red", "from": "/emitters/0/spec/red" },
+      {"op": "copy", "path": "/emitters/1/spec/green", "from": "/emitters/0/spec/green" },
+      {"op": "copy", "path": "/emitters/1/spec/blue", "from": "/emitters/0/spec/blue" },
+      {"op": "copy", "path": "/emitters/2/spec/red", "from": "/emitters/0/spec/red" },
+      {"op": "copy", "path": "/emitters/2/spec/green", "from": "/emitters/0/spec/green" },
+      {"op": "copy", "path": "/emitters/2/spec/blue", "from": "/emitters/0/spec/blue" },
+      {"op": "copy", "path": "/emitters/3/spec/red", "from": "/emitters/0/spec/red" },
+      {"op": "copy", "path": "/emitters/3/spec/green", "from": "/emitters/0/spec/green" },
+      {"op": "copy", "path": "/emitters/3/spec/blue", "from": "/emitters/0/spec/blue" },
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shader": "particle_clip",
+            "size": [[0, 0 ], [0.15, 0.5 ], [0.5, 0.75 ], [1, 1.0 ] ],
+            "red":   [[0.0, 0.25], [1.0, 0.25] ],
+            "green": [[0.0, 0.9 ], [1.0, 0.9 ] ],
+            "blue":  [[0.0, 6.0 ], [1.0, 4.0 ] ],
+            "alpha": [[0.0, 0.5 ], [1.0, 0.0 ] ],
+            "cameraPush": 0.5,
+            "baseTexture": "/pa/effects/textures/particles/fire_puff.papa",
+            "dataChannelFormat": "PositionAndColor"
+          },
+          "sizeX": 6,
+          "emissionBursts": 1,
+          "rotationRange": 3.15,
+          "rotationRateRange": 0.25,
+          "lifetime": 0.4,
+          "emitterLifetime": 1.0,
+          "bLoop": false
+        }
+      }
+    ]
+  },
+  {
+    "target": "/pa/units/land/bot_sniper/bot_sniper_ammo_beam.pfx",
+    "destination": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx",
+    "patch": [
+      {"op": "replace", "path": "/emitters/0/spec/red", "value": 0.4 },
+      {"op": "replace", "path": "/emitters/0/spec/green", "value": 0.8 },
+      {"op": "replace", "path": "/emitters/0/spec/blue", "value": 4.0 },
+
+
+      {"op": "copy", "path": "/emitters/-", "from": "/emitters/1"},
+
+      {"op": "replace", "path": "/emitters/3/red", "value":   0.2 },
+      {"op": "replace", "path": "/emitters/3/green", "value": 2.0 },
+      {"op": "replace", "path": "/emitters/3/blue", "value":  20.0 },
+      {"op": "replace", "path": "/emitters/3/sizeX", "value":  0.1},
+      {"op": "replace", "path": "/emitters/3/maxParticles", "value":  2},
+      {"op": "replace", "path": "/emitters/3/spec/alpha", "value":  1},
+      {"op": "replace", "path": "/emitters/3/spec/baseTexture", "value":  "/pa/effects/textures/particles/flat.papa" },
+
+
+      {"op": "replace", "path": "/emitters/1/red", "value":   [[0, 0.6], [1, 0.25]] },
+      {"op": "replace", "path": "/emitters/1/green", "value": [[0, 0.8], [1, 0.12]] },
+      {"op": "replace", "path": "/emitters/1/blue", "value":  [[0, 9.0], [1, 3.00]] },
+
+      {"op": "replace", "path": "/emitters/1/lifetime", "value": [[0, 0.4 ], [1, 0.5 ]] },
+
+      {"op": "scale", "path": "/emitters/2/maxParticles", "value": 0.2 },
+      {"op": "scale", "path": "/emitters/2/beamSegmentLength", "value": 5 },
+      {"op": "scale", "path": "/emitters/2/velocityRange", "value": 1 },
+      {"op": "scale", "path": "/emitters/2/velocity", "value": 1 },
+
+      {"op": "add", "path" : "/emitters/-",  "value" : {
+        "spec": {
+          "shape": "pointlight",
+          "red": 1.2,
+          "green": 0.8,
+          "blue": 5,
+          "alpha": [
+            [
+              0,
+              0.05
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "maxParticles" : 50,
+        "offsetZ" : 5,
+        "type" : "EMITTER",
+        "linkIndex" : 2,
+        "sizeX": 40,
+        "emissionBursts": 1,
+        "lifetime": 0.4,
+        "emitterLifetime": 10,
+        "endDistance": 2000
+      }},
+      {"op" : "copy", "path" : "/emitters/5", "from" : "/emitters/3"},
+      {"op" : "copy", "path" : "/emitters/6", "from" : "/emitters/1"},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/shape", "value" : "string"},
+      {"op" : "remove", "path" : "/emitters/5/emissionBursts"},
+
+      {"op" : "add", "path" : "/emitters/5/useWorldSpace", "value" : true},
+      {"op" : "add", "path" : "/emitters/5/emissionRate", "value" : 100},
+      {"op" : "scale", "path" : "/emitters/5/sizeX", "value" : 3},
+
+      {"op" : "remove", "path" : "/emitters/5/maxParticles"},
+
+      {"op" : "replace", "path" : "/emitters/6/spec/shape", "value" : "string"},
+      {"op" : "remove", "path" : "/emitters/6/emissionBursts"},
+
+      {"op" : "add", "path" : "/emitters/6/useWorldSpace", "value" : true},
+      {"op" : "add", "path" : "/emitters/6/emissionRate", "value" : 100},
+      {"op" : "scale", "path" : "/emitters/6/sizeX", "value" : 0.6},
+
+      {"op" : "remove", "path" : "/emitters/6/maxParticles"}
+    ]
+  }
+]

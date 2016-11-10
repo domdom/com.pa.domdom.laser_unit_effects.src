@@ -116,7 +116,7 @@
                 "dataChannelFormat": "PositionAndColor"
               },
               "offsetY": -1.5,
-              "sizeX": 100,
+              "sizeX": 40,
               "emissionBursts": 1,
               "lifetime": 0.75,
               "bLoop": false,
@@ -173,7 +173,7 @@
                 "dataChannelFormat": "PositionAndColor"
               },
               "offsetY": 0,
-              "sizeX": 20,
+              "sizeX": 4,
               "emissionBursts": 1,
               "lifetime": 0.75,
               "bLoop": false,
@@ -206,7 +206,9 @@
     {
         "target" : "/pa/units/sea/missile_ship/missile_ship_ammo.json",
         "patch" : [
-            {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx"},
+            {"op" : "add", "path" : "/events", "value" : {}},
+            {"op" : "add", "path" : "/events/died", "value" : {}},
+            {"op" : "add", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx"},
             {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/sea/missile_ship/missile_ship_ammo_trail.pfx"}}
         ]
     }

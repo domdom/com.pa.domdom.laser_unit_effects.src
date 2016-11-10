@@ -1,0 +1,182 @@
+[
+ {
+    "target": "/pa/units/land/artillery_short/artillery_short_ammo.json",
+    "patch": [
+      {"op": "add", "path": "/events", "value": {
+        "died": {
+          "audio_cue": "/SE/Impacts/missile_artillery_short",
+          "effect_spec": "/pa/units/land/artillery_short/artillery_short_ammo_hit.pfx"
+        }
+      }},
+      {"op": "add", "path": "/fx_trail", "value": {
+        "filename": "/pa/units/land/artillery_short/artillery_short_ammo_trail.pfx",
+        "offset": [0.0, 0.0, 0.0]
+      }}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/arty_ammo_trail.pfx",
+    "destination" : "/pa/units/land/artillery_short/artillery_short_ammo_trail.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : 0.1},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : 1},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : 3.0},
+
+      {"op" : "copy", "path" : "/emitters/1/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/2/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/3/spec", "from" : "/emitters/0/spec"},
+      {"op" : "copy", "path" : "/emitters/4/spec", "from" : "/emitters/0/spec"},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red", "value" : [[0,1], [1, 0.1]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green", "value" : 6},
+      {"op" : "copy", "path" : "/emitters/5/spec/blue", "from" : "/emitters/0/spec/blue"},
+
+      {"op" : "scale", "path" : "/emitters/0/lifetime", "value" : 0.6},
+      {"op" : "scale", "path" : "/emitters/1/lifetime", "value" : 0.6},
+      {"op" : "scale", "path" : "/emitters/2/lifetime", "value" : 0.6},
+      {"op" : "scale", "path" : "/emitters/3/lifetime", "value" : 0.6},
+      {"op" : "scale", "path" : "/emitters/4/lifetime", "value" : 0.6},
+      {"op" : "scale", "path" : "/emitters/5/lifetime", "value" : 0.9},
+
+      {"op" : "scale", "path" : "/emitters/5/sizeX", "value" : 0.6}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.8.pfx",
+    "destination" : "/pa/units/land/artillery_short/artillery_short_ammo_hit.pfx",
+    "patch" : [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0, 10 ], [0.35, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0, 100 ], [0.35, 4 ]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0, 80 ], [0.35, 20]]},
+
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0, 10 ], [0.35, 2 ]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0, 100 ], [0.35, 20 ]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",    "value" : [[0, 10 ], [0.35, 4]]},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/red",     "value" : [[0, 10 ], [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green",   "value" : [[0, 10 ], [0.75, 10 ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue",    "value" : [[0, 1 ], [0.75, 1]]},
+
+      {"op" : "replace", "path" : "/emitters/4/spec/red",     "value" : [[0, 3 ], [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/green",   "value" : [[0, 15 ], [0.75, 15 ]]},
+      {"op" : "replace", "path" : "/emitters/4/spec/blue",    "value" : [[0, 20 ], [0.75, 5]]},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 0.4},
+      {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 6.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 3.0},
+
+      {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 6.0},
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 1.0}
+    ]
+  },
+  {
+    "target": "/pa/units/land/artillery_short/artillery_short.json",
+    "patch": [
+      {
+        "op": "add",
+        "path": "/events/fired/effect_spec",
+        "value": "/pa/units/land/artillery_short/artillery_short_muzzle_flash.pfx socket_muzzle /pa/effects/specs/artillery_muzzle_ground.pfx"
+      }
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
+    "destination": "/pa/units/land/artillery_short/artillery_short_muzzle_flash.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/1/spec/shader",  "value" : "particle_add"},
+      {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0.3, 0.2], [1, 0.20]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0.3, 4.2], [1, 1.90]]},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",    "value" : [[0.3, 3.2], [1, 1.00]]},
+      {"op" : "scale", "path" : "/emitters/1/sizeX",    "value" : 2.0},
+
+      {"op" : "replace", "path" : "/emitters/0/spec/shader",  "value" : "particle_add"},
+      {"op" : "copy", "path" : "/emitters/0/spec/red",    "from" : "/emitters/1/spec/red/0/1"},
+      {"op" : "copy", "path" : "/emitters/0/spec/green",  "from" : "/emitters/1/spec/green/0/1"},
+      {"op" : "copy", "path" : "/emitters/0/spec/blue",   "from" : "/emitters/1/spec/blue/0/1"},
+      {"op" : "scale", "path" : "/emitters/0/sizeX",    "value" : 2.0},
+
+      {"op" : "copy", "path" : "/emitters/2/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/2/spec/green",  "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/2/spec/blue",   "from" : "/emitters/0/spec/blue"},
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "pointlight",
+            "red": 0,
+            "green": 2.1,
+            "blue": 1.2,
+            "alpha": [[0.2, 0.8], [1, 0]]
+          },
+          "offsetY": 0,
+          "sizeX": 10,
+          "emissionBursts": 1,
+          "lifetime": 0.6,
+          "emitterLifetime": 0.1,
+          "bLoop": false,
+          "endDistance": 850
+        }
+      },
+
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shape": "particle_transparent_lit",
+            "facing" : "velocity",
+            "red": 1,
+            "green": 15,
+            "blue": 30,
+            "alpha": [[0.6, 0.8], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/dot.papa"
+          },
+          "velocityY" : -1,
+          "velocityRangeX" : 0.4,
+          "velocityRangeZ" : 0.4,
+          "velocity" : 27,
+          "velocityRange" : 15,
+          "gravity" : -9.8,
+          "drag" : 0.98,
+          "offsetY": -0.5,
+          "sizeX": 0.2,
+          "sizeY" : 0.7,
+          "emissionBursts": 50,
+          "lifetime": 0.7,
+          "lifetimeRange": 0.2,
+          "emitterLifetime": 0.5,
+          "useWorldSpace" : true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      },
+      {"op" : "add", "path" : "/emitters/-", "value" :  {
+          "spec": {
+            "label": "SPARKS",
+            "shader": "particle_transparent_lit",
+            "facing": "velocity",
+            "sizeX": [[0.5, 1.0 ], [1, 0.0 ] ],
+            "red": [[0, 1 ], [1, 0.66 ] ],
+            "green": [[0, 30 ], [1, 10 ] ],
+            "blue": [[0, 50 ], [1, 20 ] ],
+            "alpha": [[0.75, 1.0 ], [1, 0.0 ] ],
+            "baseTexture": "/pa/effects/textures/particles/softdot.papa"
+          },
+          "offsetRangeX": 0.01,
+          "offsetRangeZ": 0.7,
+          "velocity": 50,
+          "velocityY": -1,
+          "velocityRangeZ": 0.0,
+          "velocityRange": 30,
+          "gravity": -10.0,
+          "drag": 0.97,
+          "sizeX": 0.3,
+          "sizeY" : 0.8,
+          "lifetime": 0.7,
+          "lifetimeRange": 0.35,
+          "emissionBursts": 60,
+          "useWorldSpace": true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      }
+    ]
+  }
+]
