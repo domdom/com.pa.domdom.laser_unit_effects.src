@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import os
+import shutil
 
 from pa_tools.pa import pafs
 from pa_tools.pa import paths
 from pa_tools.pa import pajson
 
+from pa_tools.mod.checker import check_mod
 from pa_tools.mod.generator import process_modinfo, process_changes
 
 options, warnings = pajson.loadf('conf.json')
@@ -46,6 +48,7 @@ def generate_mod(is_titans):
         print('CLASSIC')
         out_dir = '../classic'
 
+    shutil.rmtree(out_dir, ignore_errors=True)
     src = create_source_fs(is_titans)
 
     process_modinfo('/src/pa/modinfo.json', src, out_dir)
@@ -58,11 +61,14 @@ def generate_mod(is_titans):
     process_changes(sources, src, out_dir)
     print ('')
 
+    mod_report = check_mod(out_dir)
+    print(mod_report.printReport())
+
     ################# copy mod to pa mod directory
-    import shutil
+
     mod_path = os.path.join(paths.PA_DATA_DIR, modinfo['context'] + '_mods', modinfo['identifier'])
     shutil.rmtree(mod_path, ignore_errors=True)
     shutil.copytree(out_dir, mod_path)
 
-# generate_mod(False)
+generate_mod(False)
 generate_mod(True)
