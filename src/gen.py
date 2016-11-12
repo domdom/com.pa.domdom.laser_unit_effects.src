@@ -48,7 +48,7 @@ def generate_mod(is_titans):
         print('CLASSIC')
         out_dir = '../classic'
 
-    shutil.rmtree(out_dir, ignore_errors=True)
+    shutil.rmtree(os.path.join(out_dir, 'pa'), ignore_errors=True)
     src = create_source_fs(is_titans)
 
     process_modinfo('/src/pa/modinfo.json', src, out_dir)
