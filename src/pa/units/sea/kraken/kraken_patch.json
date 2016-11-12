@@ -85,7 +85,9 @@
 		      "emitterLifetime": 1,
 		      "bLoop": false,
 		      "endDistance": 1000
-		    }}
+		    }},
+
+		    {"op" : "scale_effect", "value" : 1.3}
 		]
 	},
 	{
@@ -94,7 +96,7 @@
 		],
 		"patch" : [
 			{"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/sea/nuclear_sub/nuclear_sub_ammo_missile_trail.pfx"}},
-			{"op" : "add", "path" : "/events/died", "value" : {"effect_spec" : "/pa/units/sea/nuclear_sub/nuclear_sub_ammo_missile_hit.pfx", "effect_scale" : 1.3}}
+			{"op" : "add", "path" : "/events/died", "value" : {"effect_spec" : "/pa/units/sea/nuclear_sub/nuclear_sub_ammo_missile_hit.pfx"}}
 		]
 	}
 ]
