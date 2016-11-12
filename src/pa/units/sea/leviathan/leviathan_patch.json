@@ -5,8 +5,7 @@
       {"op": "add", "path": "/events", "value": {
         "died": {
           "audio_cue": "/SE/Impacts/missile_battleship",
-          "effect_spec": "/pa/units/sea/battleship/battleship_ammo_hit.pfx",
-          "effect_scale" : 0.7
+          "effect_spec": "/pa/units/sea/battleship/battleship_ammo_hit.pfx"
         }
       }},
       {"op": "add", "path": "/fx_trail", "value": {
@@ -72,7 +71,6 @@
       {"op" : "replace", "path" : "/emitters/5/spec/green",   "value" : [[0, 5 ], [0.75, 2 ]]},
       {"op" : "replace", "path" : "/emitters/5/spec/blue",    "value" : [[0, 10 ], [0.75, 10]]},
 
-
       {"op" : "scale", "path" : "/emitters/3/sizeX",   "value" : 2.0},
       
       {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 1.0},
@@ -81,7 +79,9 @@
 
       {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1.0},
-      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0}
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0},
+
+      {"op" : "scale_effect", "value" : 0.7}
     ]
   },
   {
