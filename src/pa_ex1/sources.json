@@ -6,6 +6,7 @@
     { "from_file" : "/src/pa/units/land/ant/ant_patch.json"},
     { "from_file" : "/src/pa/units/land/inferno/inferno_patch.json"},
     { "from_file" : "/src/pa/units/land/leveler/leveler_patch.json"},
+    { "from_file" : "/src/pa/units/land/sheller/sheller_patch.json"},
 
     // bots
     { "from_file" : "/src/pa/units/land/commander/commander_patch.json"},
@@ -26,7 +27,7 @@
 
     // air
     { "from_file" : "/src/pa/units/air/kestrel/kestrel_patch.json" },
-    
+
     // misc effects
     { "from_file" : "/src/pa/units/static/laser/t1_patch.json" },
     { "from_file" : "/src/pa/units/static/laser/t2_patch.json" },
