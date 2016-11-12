@@ -80,8 +80,7 @@
     "patch": [
       {"op": "add", "path": "/events", "value": {
         "died": {
-          "effect_spec": "/pa/units/sea/hover_ship/hover_ship_ammo_hit.pfx",
-          "effect_scale" : 0.5
+          "effect_spec": "/pa/units/sea/hover_ship/hover_ship_ammo_hit.pfx"
         }
       }},
       {"op": "add", "path": "/fx_trail", "value": {
@@ -95,8 +94,7 @@
     "patch": [
       {"op": "add", "path": "/events", "value": {
         "died": {
-          "effect_spec": "/pa/units/sea/hover_ship/hover_ship_ammo_side_hit.pfx",
-          "effect_scale" : 0.5
+          "effect_spec": "/pa/units/sea/hover_ship/hover_ship_ammo_side_hit.pfx"
         }
       }},
       {"op": "add", "path": "/fx_trail", "value": {
@@ -335,7 +333,9 @@
           "emitterLifetime": 1,
           "bLoop": false,
           "endDistance": 1000
-        }}
+        }},
+
+        {"op" : "scale_effect", "value" : 0.5}
     ]
   },
   {
@@ -361,14 +361,17 @@
       {"op" : "scale", "path" : "/emitters/3/sizeX",   "value" : 2},
       {"op" : "scale", "path" : "/emitters/3/sizeY",   "value" : 0.6},
       {"op" : "scale", "path" : "/emitters/3/lifetime",   "value" : 1.8},
-      
+
       {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 1.0},
       {"op" : "replace", "path" : "/emitters/2/spec/green",  "value" : 6.0},
       {"op" : "replace", "path" : "/emitters/2/spec/blue", "value" : 1.0},
 
       {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1.0},
-      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0}
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0},
+
+
+      {"op" : "scale_effect", "value" : 0.5}
     ]
   }
 ]
