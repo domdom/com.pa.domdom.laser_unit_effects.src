@@ -5,8 +5,7 @@
       {"op": "add", "path": "/events", "value": {
         "died": {
           "audio_cue": "/SE/Impacts/missile_destroyer",
-          "effect_spec": "/pa/units/sea/destroyer/destroyer_ammo_hit.pfx",
-          "effect_scale" : 0.2
+          "effect_spec": "/pa/units/sea/destroyer/destroyer_ammo_hit.pfx"
         }
       }},
       {"op": "add", "path": "/fx_trail", "value": {
@@ -105,7 +104,9 @@
 
       {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 1.0},
-      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0}
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0},
+
+      {"op" : "scale_effect", "value" : 0.2}
     ]
   },
   {
