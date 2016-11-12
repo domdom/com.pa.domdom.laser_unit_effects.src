@@ -23,7 +23,7 @@
       {"op": "copy", "path": "/emitters/3/spec/green", "from": "/emitters/0/spec/green"},
       {"op": "copy", "path": "/emitters/3/spec/blue", "from": "/emitters/0/spec/blue"},
       {"op": "add", "path": "/emitters/-", "value": {
-          "spec": {   
+          "spec": {
             "shape": "pointlight",
             "red": 0.2,
             "green": 1.0,
@@ -79,7 +79,7 @@
     "destination" : "/pa/units/commanders/base_commander/base_commander_rocket_trail.pfx"
   },
   {
-    "target" : "/src/pa/base_effects/arty_ammo_hit_scale_0.15.pfx",
+    "target" : "/src/pa/base_effects/arty_ammo_hit.pfx",
     "destination" : "/pa/units/commanders/base_commander/base_commander_bullet_hit.pfx",
     "patch" : [
       {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 0], [0.35, 2]]},
@@ -104,7 +104,9 @@
 
       {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 0.9},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 6.0},
-      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 0.7}
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 0.7},
+
+      {"op" : "scale_effect", "value" : 0.15}
     ]
   }
 ]

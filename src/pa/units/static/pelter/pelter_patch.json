@@ -42,7 +42,7 @@
     ]
   },
   {
-    "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.8.pfx",
+    "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
     "destination" : "/pa/units/land/artillery_short/artillery_short_ammo_hit.pfx",
     "patch" : [
       {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0, 10 ], [0.35, 2 ]]},
@@ -68,7 +68,9 @@
 
       {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 1.0},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 6.0},
-      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 1.0}
+      {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 1.0},
+
+      {"op" : "scale_effect", "value" : 0.8}
     ]
   },
   {

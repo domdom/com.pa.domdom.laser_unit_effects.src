@@ -11,7 +11,7 @@
     ]
   },
   {
-    "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.15.pfx",
+    "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
     "destination" : "/pa/units/sea/torpedo/torpedo_hit.pfx",
     "patch" : [
       {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 100], [0.35, 4]]},
@@ -32,7 +32,9 @@
 
       {"op" : "replace", "path" : "/emitters/2/spec/red",   "value" : 6.0},
       {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.4},
-      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 0.1}
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 0.1},
+
+      {"op" : "scale_effect", "value" : 0.15}
     ]
   }
 ]

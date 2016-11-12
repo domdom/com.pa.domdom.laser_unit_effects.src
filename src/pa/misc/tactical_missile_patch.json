@@ -71,10 +71,8 @@
         ]
     },
     {
-       "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.4.pfx", 
-       "destination" : [
-            "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx"
-        ],
+       "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
+       "destination" : "/pa/units/sea/missile_ship/missile_ship_ammo_hit.pfx",
        "patch" : [
           {"op" : "replace", "path" : "/emitters/0/spec/red",   "value" : [[0, 100 ], [0.35, 4 ]]},
           {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : [[0, 10 ], [0.35, 2 ]]},
@@ -105,6 +103,8 @@
 
           {"op" : "scale", "path" : "/emitters/8/sizeX",   "value" : 1.6},
 
+          {"op" : "scale_effect", "value" : 0.4},
+
           {"op" : "add", "path" : "/emitters/-", "value" : {
               "spec": {
                 "label": "GLOW",
@@ -122,11 +122,12 @@
               "bLoop": false,
               "sort": "NoSort",
               "endDistance": 2000
-            }}
+            }
+          }
         ]
     },
     {
-        "target": "/src/pa/base_effects/arty_ammo_hit_scale_0.2.pfx",
+        "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
         "destination" : [
             "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_hit.pfx",
             "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_hit.pfx",
@@ -161,6 +162,8 @@
           {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 10},
 
           {"op" : "scale", "path" : "/emitters/8/sizeX",   "value" : 1.6},
+
+          {"op" : "scale_effect", "value" : 0.2},
 
           {"op" : "add", "path" : "/emitters/-", "value" : {
               "spec": {

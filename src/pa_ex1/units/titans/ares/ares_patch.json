@@ -7,7 +7,7 @@
       {"op" : "replace", "path" : "/events/fired1/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_left_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_left_muzzle02"},
       {"op" : "replace", "path" : "/events/fired2/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_right_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_right_muzzle02"},
       {"op" : "replace", "path" : "/events/fired3/effect_spec", "value": "/pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_rear_muzzle01 /pa/units/land/titan_vehicle/titan_vehicle_muzzle_flash_side.pfx socket_rear_muzzle02"}
-      
+
     ]
   },
   {
@@ -28,7 +28,7 @@
       {"op": "add", "path": "/emitters/0/sizeY", "value":  3.2 },
       {"op": "add", "path": "/emitters/1/sizeY", "value":  3.2 },
       {"op": "add", "path": "/emitters/2/sizeY", "value":  3.2 },
-      
+
       {"op": "copy", "path": "/emitters/2/spec/red", "from": "/emitters/1/spec/red"},
       {"op": "copy", "path": "/emitters/2/spec/green", "from": "/emitters/1/spec/green"},
       {"op": "copy", "path": "/emitters/2/spec/blue", "from": "/emitters/1/spec/blue"},
@@ -117,8 +117,7 @@
     "target" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side.json",
     "patch" : [
       {"op" : "add", "path" : "/fx_trail", "value" : {"filename" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_trail.pfx"}},
-      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_hit.pfx"},
-      {"op" : "add", "path" : "/events/died/effect_scale", "value" : 0.7}
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_side_hit.pfx"}
     ]
   },
   {
@@ -140,7 +139,9 @@
       {"op": "scale", "path" : "/emitters/1/sizeX",  "value" : 1},
 
       {"op": "scale", "path" : "/emitters/2/lifetime",  "value" : 4},
-      {"op": "replace", "path" : "/emitters/2/spec/size",  "value" : [[0,0.7],[0.5, 0]]}
+      {"op": "replace", "path" : "/emitters/2/spec/size",  "value" : [[0,0.7],[0.5, 0]]},
+
+      {"op" : "scale_effect", "value" : 0.7}
     ]
   },
   {
@@ -369,8 +370,7 @@
     "target" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main.json",
     "patch" : [
       {"op" : "replace", "path" : "/fx_trail/filename", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_trail.pfx"},
-      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_hit.pfx"},
-      {"op" : "add", "path" : "/events/died/effect_scale", "value" : 0.7}
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/land/titan_vehicle/titan_vehicle_ammo_main_hit.pfx"}
     ]
   },
   {
@@ -721,7 +721,8 @@
           "bLoop": false,
           "endDistance": 3000
         }
-      ]}
+      ]},
+      {"op" : "scale_effect", "value" : 0.7}
     ]
   }
 ]

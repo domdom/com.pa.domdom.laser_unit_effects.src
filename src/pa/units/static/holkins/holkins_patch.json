@@ -43,7 +43,7 @@
     ]
   },
   {
-    "target": "/src/pa/base_effects/arty_ammo_hit_scale_1.6.pfx",
+    "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
     "destination" : "/pa/units/land/artillery_long/artillery_long_ammo_hit.pfx",
     "patch" : [
       {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0, 0 ], [0.35, 0.2 ]]},
@@ -51,7 +51,7 @@
       {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0, 50 ], [0.35, 10]]},
 
       {"op" : "replace", "path" : "/emitters/1/lifetime",     "value" : 2.4},
-      
+
 
       {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0, 100 ], [0.35, 10 ]]},
       {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0, 2 ], [0.35, 2 ]]},
@@ -84,6 +84,8 @@
       {"op" : "scale", "path" : "/emitters/3/velocity", "value" : 0.8},
       {"op" : "scale", "path" : "/emitters/3/sizeY", "value" : 0.6},
       {"op" : "scale", "path" : "/emitters/3/velocityRange", "value" : 2},
+
+      {"op" : "scale_effect", "value" : 1.6},
 
       {"op" : "add", "path" : "/emitters/-", "value" : {
          "spec": {
@@ -326,7 +328,7 @@
       {"op" : "copy", "path" : "/emitters/0/spec/green",  "from" : "/emitters/1/spec/green/0/1"},
       {"op" : "copy", "path" : "/emitters/0/spec/blue",   "from" : "/emitters/1/spec/blue/0/1"},
       {"op" : "scale", "path" : "/emitters/0/sizeX",    "value" : 4.0},
-      
+
       {"op" : "copy", "path" : "/emitters/2/spec/red",    "from" : "/emitters/0/spec/red"},
       {"op" : "copy", "path" : "/emitters/2/spec/green",  "from" : "/emitters/0/spec/green"},
       {"op" : "copy", "path" : "/emitters/2/spec/blue",   "from" : "/emitters/0/spec/blue"},
