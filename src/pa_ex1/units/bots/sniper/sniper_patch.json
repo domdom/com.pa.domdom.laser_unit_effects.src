@@ -10,6 +10,23 @@
     ]
   },
   {
+    "target": "/pa/units/land/bot_sniper/bot_sniper_ammo.json",
+    "patch": [
+      {"op": "add", "path": "/fx_beam_spec", "value": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx"},
+      {"op": "add", "path": "/fx_collision_spec", "value" : "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx"},
+
+      {"op": "add", "path": "/events", "value" : {
+        "died": {
+          "audio_cue": "/SE/Impacts/shell_bullet",
+          "effect_spec": "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx"
+        }
+      }},
+      {"op": "add", "path": "/fx_trail", "value" : {
+        "filename": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx"
+      }}
+    ]
+  },
+  {
       "target": "/pa/effects/specs/default_muzzle_flash.pfx",
       "destination" : "/pa/units/land/bot_sniper/bot_sniper_muzzle_flash.pfx",
       "patch" : [
@@ -57,8 +74,6 @@
             "bLoop" : false
           }},
           {"op" : "copy", "path" : "/emitters/-",   "from" : "/emitters/4"},
-
-
           {"op" : "add",  "path" : "/emitters/-", "value" : {
             "spec" : {
               "shader" : "particle_add",
@@ -96,13 +111,6 @@
             "bLoop" : false
           }}
       ]
-  },
-  {
-    "target": "/pa/units/land/bot_sniper/bot_sniper_ammo.json",
-    "patch": [
-      {"op": "replace", "path": "/fx_beam_spec", "value": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx"},
-      {"op": "replace", "path": "/fx_collision_spec", "value" : "/pa/units/land/bot_sniper/bot_sniper_ammo_hit.pfx"}
-    ]
   },
   {
     "target": "/src/pa/base_effects/ammo_hit.pfx",
@@ -159,7 +167,6 @@
     "target": "/pa/units/land/bot_sniper/bot_sniper_ammo_beam.pfx",
     "destination": "/pa/units/land/bot_sniper/bot_sniper_ammo_trail.pfx",
     "patch": [
-
       {"op": "replace", "path": "/emitters/0/spec/red", "value": 0.4 },
       {"op": "replace", "path": "/emitters/0/spec/green", "value": 0.8 },
       {"op": "replace", "path": "/emitters/0/spec/blue", "value": 4.0 },
@@ -188,35 +195,52 @@
       {"op": "scale", "path": "/emitters/2/velocity", "value": 1 },
 
       {"op": "add", "path" : "/emitters/-",  "value" : {
-      "spec": {
-        "shape": "pointlight",
-        "red": 1.2,
-        "green": 0.8,
-        "blue": 5,
-        "alpha": [
-          [
-            0,
-            0.05
-          ],
-          [
-            1,
-            0
+        "spec": {
+          "shape": "pointlight",
+          "red": 1.2,
+          "green": 0.8,
+          "blue": 5,
+          "alpha": [
+            [
+              0,
+              0.05
+            ],
+            [
+              1,
+              0
+            ]
           ]
-        ]
-      },
-      "maxParticles" : 50,
-      "offsetZ" : 5,
-      "type" : "EMITTER",
-      "linkIndex" : 2,
-      "sizeX": 40,
-      "emissionBursts": {
-        "count": 1,
-        "time": 0.06
-      },
-      "lifetime": 0.4,
-      "emitterLifetime": 10,
-      "endDistance": 2000
-    }}
+        },
+        "maxParticles" : 50,
+        "offsetZ" : 5,
+        "type" : "EMITTER",
+        "linkIndex" : 2,
+        "sizeX": 40,
+        "emissionBursts": 1,
+        "lifetime": 0.4,
+        "emitterLifetime": 10,
+        "endDistance": 2000
+      }},
+      {"op" : "copy", "path" : "/emitters/5", "from" : "/emitters/3"},
+      {"op" : "copy", "path" : "/emitters/6", "from" : "/emitters/1"},
+
+      {"op" : "replace", "path" : "/emitters/5/spec/shape", "value" : "string"},
+      {"op" : "remove", "path" : "/emitters/5/emissionBursts"},
+
+      {"op" : "add", "path" : "/emitters/5/useWorldSpace", "value" : true},
+      {"op" : "add", "path" : "/emitters/5/emissionRate", "value" : 100},
+      {"op" : "scale", "path" : "/emitters/5/sizeX", "value" : 3},
+
+      {"op" : "remove", "path" : "/emitters/5/maxParticles"},
+
+      {"op" : "replace", "path" : "/emitters/6/spec/shape", "value" : "string"},
+      {"op" : "remove", "path" : "/emitters/6/emissionBursts"},
+
+      {"op" : "add", "path" : "/emitters/6/useWorldSpace", "value" : true},
+      {"op" : "add", "path" : "/emitters/6/emissionRate", "value" : 100},
+      {"op" : "scale", "path" : "/emitters/6/sizeX", "value" : 0.6},
+
+      {"op" : "remove", "path" : "/emitters/6/maxParticles"}
     ]
   }
 ]
