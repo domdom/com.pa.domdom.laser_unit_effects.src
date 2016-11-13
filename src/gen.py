@@ -25,7 +25,7 @@ def create_source_fs(is_titans):
     src = pafs(paths.PA_MEDIA_DIR)
     if is_titans:
         src.mount('/pa', '/pa_ex1')
-        src.mount('/src/pa', 'pa')    
+        src.mount('/src/pa', 'pa')
         src.mount('/src/pa', 'pa_ex1')
     else:
         src.mount('/src/pa', 'pa')
@@ -52,7 +52,7 @@ def generate_mod(is_titans):
     src = create_source_fs(is_titans)
 
     process_modinfo('/src/pa/modinfo.json', src, out_dir)
-    
+
     modinfo = load_json(src, '/src/pa/modinfo.json')
     # mount the mod directory
     src.mount('/mod', out_dir)
