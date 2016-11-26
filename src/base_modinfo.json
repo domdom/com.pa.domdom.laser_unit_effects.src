@@ -1,0 +1,9 @@
+{
+  "context" : "client",
+  "display_name" : "More Pew Pew",
+  "description" : "More pew, more color, and more distinguishable unit weapon effects! Tell at a glance what is shooting at you.",
+  "author" : "dom314",
+  "icon" : "http://i.imgur.com/PQOpc3u.gif",
+  "priority" : 105,
+  "version": "1.4.2"
+}
