@@ -7,7 +7,7 @@ from pa_tools.pa import paths
 from pa_tools.pa import pajson
 
 from pa_tools.mod.checker import check_mod
-from pa_tools.mod.generator import process_modinfo, process_changes
+from pa_tools.mod.generator import update_modinfo, process_changes
 
 from icons import generate_strat_icons
 
@@ -27,9 +27,11 @@ def create_source_fs(is_titans):
     src = pafs(paths.PA_MEDIA_DIR)
     if is_titans:
         src.mount('/pa', '/pa_ex1')
+        src.mount('/src', '.')
         src.mount('/src/pa', 'pa')
         src.mount('/src/pa', 'pa_ex1')
     else:
+        src.mount('/src', '.')
         src.mount('/src/pa', 'pa')
 
     return src
@@ -52,8 +54,14 @@ def generate_mod(is_titans):
 
     # create the base file system
     src = create_source_fs(is_titans)
-    process_modinfo('/src/pa/modinfo.json', src, out_dir)
-    modinfo = load_json(src, '/src/pa/modinfo.json')
+    modinfo = load_json(src, '/src/base_modinfo.json')
+    modinfo.update(load_json(src, '/src/pa/modinfo.json'))
+    modinfo = update_modinfo(modinfo)
+
+    destination_path = os.path.join(out_dir, 'modinfo.json')
+    os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+    with open(destination_path, 'w', newline='\n') as dest:
+        pajson.dump(modinfo, dest, indent=2)
 
     # mount the mod directory
     src.mount('/mod', out_dir)
@@ -70,7 +78,6 @@ def generate_mod(is_titans):
     src.unmount('/mod')
     src.mount('/', out_dir)
     process_changes(generate_strat_icons(src), src, out_dir)
-
 
     # analyse the mod for missing files
     mod_report = check_mod(out_dir)
