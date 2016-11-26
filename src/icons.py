@@ -6,7 +6,8 @@ from pa_tools.pa import spec
 
 
 def generate_dot_effects():
-    base_dot = {
+    # use string loading to make it ordered
+    base_dot, warnings = pajson.loads("""{
       "spec": {
         "shader": "particle_transparent_screensize_nohdr",
         "facing" : "camera",
@@ -20,10 +21,12 @@ def generate_dot_effects():
       "sizeX": 2,
       "emissionBurts": 1,
       "lifetime": 127,
-      "killOnDeactivate": True,
+      "killOnDeactivate": true,
       "startDistance" : 700,
       "endDistance": -1
-    }
+    }""", '<dot effect file>')
+
+    list(map(print, warnings))
 
     dot_small = copy.deepcopy(base_dot)
     dot_small['sizeX'] = 1
@@ -64,6 +67,8 @@ def load(loader, spec_id):
     return spec
 
 def generate_strat_icons(loader):
+    # we have to clear the spec cache
+    spec.clear_cache()
     dots = generate_dot_effects()
 
     unit_list, warnings = pajson.loadf(loader.resolveFile('/pa/units/unit_list.json'))
@@ -128,6 +133,10 @@ def generate_strat_icons(loader):
                                     {"op" : "add", "path" : "/emitters/-", "value": dots[size]}
                                 ]
                             })
+
+                        if 'base_spec' in ammo:
+                            base_ammo, warnings = pajson.loadf(loader.resolveFile(ammo_id))
+                            ammo = spec.prune_spec(ammo, base_ammo)
 
                         patch_value = ammo.get('fx_trail', {})
                         patch_value['filename'] = fx_name
