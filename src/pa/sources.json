@@ -8,6 +8,9 @@
     { "from_file" : "/src/pa/units/land/leveler/leveler_patch.json"},
     { "from_file" : "/src/pa/units/land/sheller/sheller_patch.json"},
 
+    // just fixes the fabber selection circle being small.
+    { "from_file" : "/src/pa/units/land/fabber/fabber_patch.json" },
+
     // bots
     { "from_file" : "/src/pa/units/land/commander/commander_patch.json"},
 

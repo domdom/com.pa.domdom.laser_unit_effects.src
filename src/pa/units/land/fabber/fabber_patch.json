@@ -1,0 +1,12 @@
+{
+    "target": "/pa/units/land/fabrication_vehicle/fabrication_vehicle.json",
+    "patch": [
+        {
+            "op": "add",
+            "path": "/selection_icon",
+            "value": {
+                "diameter": 12.0
+            }
+        }
+    ]
+}

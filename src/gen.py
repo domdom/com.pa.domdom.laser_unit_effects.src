@@ -5,6 +5,7 @@ import shutil
 from pa_tools.pa import pafs
 from pa_tools.pa import paths
 from pa_tools.pa import pajson
+from pa_tools.pa import spec
 
 from pa_tools.mod.checker import check_mod
 from pa_tools.mod.generator import update_modinfo, process_changes
@@ -79,6 +80,9 @@ def generate_mod(is_titans):
     src.mount('/', out_dir)
     process_changes(generate_strat_icons(src), src, out_dir)
 
+    spec.clear_cache()
+    optimize_mod(src, out_dir)
+
     # analyse the mod for missing files
     mod_report = check_mod(out_dir)
     print(mod_report.printReport())
@@ -88,5 +92,21 @@ def generate_mod(is_titans):
     shutil.rmtree(mod_path, ignore_errors=True)
     shutil.copytree(out_dir, mod_path)
 
+
+def optimize_mod(loader, out_dir):
+    for root, dirs, files in os.walk(out_dir):
+        for file in files:
+            if file.endswith('.json'):
+                file_path = os.path.join(root, file)
+                file_spec = spec.parse_spec(loader, file_path)
+                if 'base_spec' in file_spec:
+                    base_spec = spec.parse_spec(loader, file_spec['base_spec'])
+                    file_spec = spec.prune_spec(file_spec, base_spec)
+
+                    with open(file_path, 'w', newline='\n') as f:
+                        pajson.dump(file_spec, f, indent=2)
+
+
 generate_mod(False)
 generate_mod(True)
+
