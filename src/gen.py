@@ -81,16 +81,21 @@ def generate_mod(is_titans):
     process_changes(generate_strat_icons(src), src, out_dir)
 
     spec.clear_cache()
-    optimize_mod(src, out_dir)
+    # optimize_mod(src, out_dir)
 
     # analyse the mod for missing files
     mod_report = check_mod(out_dir)
     print(mod_report.printReport())
 
+    # make the local one a dev build
+    modinfo['identifier'] = modinfo['identifier'] + '.dev'
+
     ################# copy mod to pa mod directory
     mod_path = os.path.join(paths.PA_DATA_DIR, modinfo['context'] + '_mods', modinfo['identifier'])
     shutil.rmtree(mod_path, ignore_errors=True)
     shutil.copytree(out_dir, mod_path)
+    with open(os.path.join(mod_path, 'modinfo.json'), 'w', newline='\n') as dest:
+        pajson.dump(modinfo, dest, indent=2)
 
 
 def optimize_mod(loader, out_dir):
