@@ -122,7 +122,7 @@
 
       {"op": "add", "path": "/emitters/-", "value": {
           "spec": {
-            "shape": "particle_transparent_lit",
+            "shader": "particle_transparent_lit",
             "facing" : "velocity",
             "red": 1,
             "green": 15,

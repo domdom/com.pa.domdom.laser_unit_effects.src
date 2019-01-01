@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import shutil
+from distutils import dir_util
 
 from pa_tools.pa import pafs
 from pa_tools.pa import paths
@@ -9,6 +10,8 @@ from pa_tools.pa import spec
 
 from pa_tools.mod.checker import check_mod
 from pa_tools.mod.generator import update_modinfo, process_changes
+
+from pa_tools.mod.utils import deploy_debug, create_pafs, restore
 
 from icons import generate_strat_icons
 
@@ -25,15 +28,12 @@ print ('')
 
 def create_source_fs(is_titans):
     # setting up source file system
-    src = pafs(paths.PA_MEDIA_DIR)
+    src = create_pafs(is_titans)
+    src.mount('/src', '.')
+    src.mount('/src/pa', 'pa')
+
     if is_titans:
-        src.mount('/pa', '/pa_ex1')
-        src.mount('/src', '.')
-        src.mount('/src/pa', 'pa')
         src.mount('/src/pa', 'pa_ex1')
-    else:
-        src.mount('/src', '.')
-        src.mount('/src/pa', 'pa')
 
     return src
 
@@ -81,21 +81,15 @@ def generate_mod(is_titans):
     process_changes(generate_strat_icons(src), src, out_dir)
 
     spec.clear_cache()
-    # optimize_mod(src, out_dir)
 
-    # analyse the mod for missing files
-    mod_report = check_mod(out_dir)
-    print(mod_report.printReport())
-
-    # make the local one a dev build
-    modinfo['identifier'] = modinfo['identifier'] + '.dev'
-
-    ################# copy mod to pa mod directory
-    mod_path = os.path.join(paths.PA_DATA_DIR, modinfo['context'] + '_mods', modinfo['identifier'])
-    shutil.rmtree(mod_path, ignore_errors=True)
-    shutil.copytree(out_dir, mod_path)
-    with open(os.path.join(mod_path, 'modinfo.json'), 'w', newline='\n') as dest:
-        pajson.dump(modinfo, dest, indent=2)
+    if options.get('debug_mode', False):
+        deploy_debug(out_dir)
+    else:
+        restore()
+        # optimize_mod(src, out_dir)
+        # analyse the mod for missing files
+        mod_report = check_mod(out_dir)
+        print(mod_report.printReport())
 
 
 def optimize_mod(loader, out_dir):
@@ -114,4 +108,3 @@ def optimize_mod(loader, out_dir):
 
 generate_mod(False)
 generate_mod(True)
-

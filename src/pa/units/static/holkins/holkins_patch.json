@@ -351,7 +351,7 @@
       },
       {"op": "add", "path": "/emitters/-", "value": {
           "spec": {
-            "shape": "particle_transparent_lit",
+            "shader": "particle_transparent_lit",
             "facing" : "velocity",
             "red": 50,
             "green": 3,
@@ -410,7 +410,7 @@
       },
       {"op": "add", "path": "/emitters/-", "value": {
           "spec": {
-            "shape": "particle_transparent_lit",
+            "shader": "particle_transparent_lit",
             "facing" : "velocity",
             "red": 7,
             "green": 3,
