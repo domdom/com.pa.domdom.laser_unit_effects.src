@@ -83,9 +83,9 @@ def generate_mod(is_titans):
     spec.clear_cache()
 
     if options.get('debug_mode', False):
-        deploy_debug(out_dir)
+        deploy_debug(out_dir, is_titans)
     else:
-        restore()
+        restore();
         # optimize_mod(src, out_dir)
         # analyse the mod for missing files
         mod_report = check_mod(out_dir)

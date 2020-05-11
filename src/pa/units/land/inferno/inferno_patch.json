@@ -5,6 +5,7 @@
     },
     {
         "target" : "/pa/units/land/tank_armor/tank_armor_muzzle_flame.pfx",
+        "destination" : "/pa/units/land/tank_armor/tank_armor_muzzle_flame.pfx",
         "patch" : [
             { "op" : "add", "path" : "/emitters/-", "value" : {
                 "spec": {

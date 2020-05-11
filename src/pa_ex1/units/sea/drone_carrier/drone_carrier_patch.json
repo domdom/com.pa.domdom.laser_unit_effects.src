@@ -1,0 +1,24 @@
+[
+  {
+    "target": "/pa/units/sea/drone_carrier/drone/drone_ammo_torpedo.json",
+    "patch": [
+      { "op": "add", "path": "/fx_trail", "value": { "filename": "/pa/units/sea/drone_carrier/drone/drone_ammo_torpedo_trail.pfx" } }
+    ]
+  },
+  {
+    "target" : "/src/pa/units/sea/torpedo/torpedo_trail.pfx",
+    "destination" : "/pa/units/sea/drone_carrier/drone/drone_ammo_torpedo_trail.pfx",
+    "patch": [
+      {"op" : "scale_effect", "value" : 0.4},
+      {"op" : "move", "path" : "/emitters/0/red", "from" : "/emitters/0/spec/red"},
+      {"op" : "move", "path" : "/emitters/0/blue", "from" : "/emitters/0/spec/blue"},
+      {"op" : "move", "path" : "/emitters/0/green", "from" : "/emitters/0/spec/green"},
+
+      {"op" : "replace", "path" : "/emitters/0/red", "value" :    [[0, 5  ], [0.8, 5],   [0.9, 0.8], [10, 0.8]]},
+      {"op" : "replace", "path" : "/emitters/0/blue", "value" :   [[0, 0.8], [0.8, 0.8], [0.9, 3],   [10, 3]]},
+      {"op" : "replace", "path" : "/emitters/0/green", "value" :  [[0, 0.8], [0.8, 0.8], [0.9, 1],   [10, 1]]},
+
+      {"op" : "replace", "path" : "/emitters/0/emitterLifetime", "value" : 10}
+    ]
+  }
+]

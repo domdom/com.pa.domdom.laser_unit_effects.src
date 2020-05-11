@@ -8,6 +8,8 @@
     { "from_file" : "/src/pa/units/land/leveler/leveler_patch.json"},
     { "from_file" : "/src/pa/units/land/sheller/sheller_patch.json"},
 
+    { "from_file" : "/src/pa/units/land/stryker/stryker_patch.json"},
+
     // bots
     { "from_file" : "/src/pa/units/land/commander/commander_patch.json"},
 
@@ -23,10 +25,13 @@
     { "from_file" : "/src/pa/units/sea/kraken/kraken_patch.json" },
     { "from_file" : "/src/pa/units/sea/orca/orca_patch.json" },
 
+    { "from_file" : "/src/pa/units/sea/drone_carrier/drone_carrier_patch.json" },
+
     { "from_file" : "/src/pa/units/sea/torpedo/torpedo_patch.json" },
 
     // air
     { "from_file" : "/src/pa/units/air/kestrel/kestrel_patch.json" },
+    { "from_file" : "/src/pa/units/air/strafer/strafer_patch.json" },
 
     // misc effects
     { "from_file" : "/src/pa/units/static/laser/t1_patch.json" },

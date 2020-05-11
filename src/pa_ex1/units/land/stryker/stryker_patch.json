@@ -1,0 +1,147 @@
+[
+  {
+    "target": "/pa/units/land/attack_vehicle/attack_vehicle.json",
+    "patch": [
+      {
+        "op": "add",
+        "path": "/events/fired/effect_spec",
+        "value": "/pa/units/land/attack_vehicle/attack_vehicle_muzzle_flash.pfx socket_muzzle01 /pa/units/land/attack_vehicle/attack_vehicle_muzzle_flash.pfx socket_muzzle02"
+      }
+    ]
+  },
+  {
+    "target": "/pa/effects/specs/tank_muzzle_flash.pfx",
+    "destination": "/pa/units/land/attack_vehicle/attack_vehicle_muzzle_flash.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0.3, 5], [1, 1.00]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0.3, 1], [1, 0.30]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0.3, 1], [1, 0.70]]},
+
+      {"op" : "scale", "path" : "/emitters/0/sizeX",    "value" : 0.4},
+      {"op" : "scale", "path" : "/emitters/1/sizeX",    "value" : 0.4},
+      {"op" : "scale", "path" : "/emitters/0/offsetY",    "value" : 0.4},
+      {"op" : "scale", "path" : "/emitters/1/offsetY",    "value" : 0.4},
+
+      {"op" : "copy", "path" : "/emitters/1/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/1/spec/green",  "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/1/spec/blue",   "from" : "/emitters/0/spec/blue"},
+      {"op": "replace", "path": "/emitters/3", "value": {
+          "spec": {
+            "shape": "pointlight",
+            "red": 1.0,
+            "green": 0.4,
+            "blue": 0.3,
+            "alpha": [[0.6, 0.8], [1, 0]]
+          },
+          "offsetY": -0.5,
+          "sizeX": 10,
+          "emissionBursts": 1,
+          "lifetime": 0.15,
+          "emitterLifetime": 0.1,
+          "bLoop": false,
+          "endDistance": 850
+        }
+      },
+      {"op": "add", "path": "/emitters/-", "value": {
+          "spec": {
+            "shader": "particle_transparent_lit",
+            "facing" : "velocity",
+            "red": 60,
+            "green": 14,
+            "blue": 3,
+            "alpha": [[0.6, 0.8], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/dot.papa"
+          },
+          "velocityY" : -1,
+          "velocityRangeX" : 0.4,
+          "velocityRangeZ" : 0.4,
+          "velocity" : 20,
+          "velocityRange" : 7,
+          "gravity" : -9.8,
+          "drag" : 0.98,
+          "offsetY": -0.5,
+          "sizeX": 0.1,
+          "sizeY" : 0.4,
+          "emissionBursts": 5,
+          "lifetime": 0.3,
+          "lifetimeRange": 0.2,
+          "emitterLifetime": 0.5,
+          "useWorldSpace" : true,
+          "bLoop": false,
+          "endDistance": 400
+        }
+      }
+    ]
+  },
+  {
+    "target": "/pa/units/land/attack_vehicle/attack_vehicle_ammo.json",
+    "patch": [
+      {"op": "add", "path": "/events", "value": {"died": {"effect_spec": "/pa/units/land/attack_vehicle/attack_vehicle_ammo_hit.pfx"} } },
+      {"op": "replace", "path": "/fx_trail/filename", "value": "/pa/units/land/attack_vehicle/attack_vehicle_ammo_trail.pfx"}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/ammo_hit.pfx",
+    "destination": "/pa/units/land/attack_vehicle/attack_vehicle_ammo_hit.pfx",
+    "patch": [
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : 1.0},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : 0.4},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : 0.2},
+
+      {"op" : "copy", "path" : "/emitters/1/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/1/spec/green",    "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/1/spec/blue",    "from" : "/emitters/0/spec/blue"},
+
+      {"op" : "copy", "path" : "/emitters/2/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/2/spec/green",    "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/2/spec/blue",    "from" : "/emitters/0/spec/blue"},
+
+      {"op" : "copy", "path" : "/emitters/3/spec/red",    "from" : "/emitters/0/spec/red"},
+      {"op" : "copy", "path" : "/emitters/3/spec/green",    "from" : "/emitters/0/spec/green"},
+      {"op" : "copy", "path" : "/emitters/3/spec/blue",    "from" : "/emitters/0/spec/blue"}
+    ]
+  },
+  {
+    "target": "/src/pa/base_effects/ammo_trail.pfx",
+    "destination": "/pa/units/land/attack_vehicle/attack_vehicle_ammo_trail.pfx",
+    "patch": [
+      {"op" : "scale", "path" : "/emitters/0/sizeX",          "value" : 0.5},
+      {"op" : "scale", "path" : "/emitters/1/sizeX",          "value" : 0.5},
+      
+      {"op" : "replace", "path" : "/emitters/2", "value" : {
+        "spec": {
+          "shader": "particle_transparent",
+          "facing": "axialY",
+          "red": 0.1,
+          "green": 5,
+          "blue": 0.4,
+          "alpha": 2,
+          "baseTexture": "/pa/effects/textures/particles/gradient_tail.papa",
+          "dataChannelFormat": "PositionColorAndAlignVector"
+        },
+        "sizeX": 0.3,
+        "sizeY": 5,
+        "offsetX": 0,
+        "offsetY": 2.5,
+        "emissionBursts": 1,
+        "lifetime": 127,
+        "maxParticles": 1,
+        "killOnDeactivate": true,
+        "endDistance": 1400
+      }},
+
+
+      {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : 4.0},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : 0.9},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : 0.1},
+
+      {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : 4.0},
+      {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : 0.9},
+      {"op" : "replace", "path" : "/emitters/1/spec/blue",    "value" : 0.1},
+
+      {"op" : "replace", "path" : "/emitters/2/spec/red",     "value" : 4.0},
+      {"op" : "replace", "path" : "/emitters/2/spec/green",   "value" : 0.9},
+      {"op" : "replace", "path" : "/emitters/2/spec/blue",    "value" : 0.1}
+    ]
+  }
+]
