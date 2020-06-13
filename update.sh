@@ -16,7 +16,7 @@ do_git_update() {
     local dir="$1"
     git -C "$dir" checkout -B master
     git -C "$dir" add --all .
-    git -C "$dir" commit -m "Automated update: build $pa_version" || exit 0
+    git -C "$dir" commit -m "Automated update: build $pa_version" || true
     git -C "$dir" push
 }
 
