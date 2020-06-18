@@ -14,13 +14,21 @@ cd ..
 
 do_git_update() {
     local dir="$1"
-    git -C "$dir" checkout -B master
     git -C "$dir" add --all .
     git -C "$dir" commit -m "Automated update: build $pa_version" || true
+}
+
+do_git_push() {
+    local dir="$1"
+    git -C "$dir" checkout -B master
     git -C "$dir" push
 }
 
 do_git_update classic
 do_git_update titans
 do_git_update .
+
+do_git_push classic
+do_git_push titans
+do_git_push .
 
