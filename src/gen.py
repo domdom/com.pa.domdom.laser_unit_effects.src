@@ -55,17 +55,18 @@ def generate_mod(is_titans):
 
     # create the base file system
     src = create_source_fs(is_titans)
+
+    # mount the mod directory
+    src.mount('/mod', out_dir)
+
     modinfo = load_json(src, '/src/base_modinfo.json')
     modinfo.update(load_json(src, '/src/pa/modinfo.json'))
-    modinfo = update_modinfo(modinfo)
+    modinfo = update_modinfo(modinfo, load_json(src, '/mod/modinfo.json'))
 
     destination_path = os.path.join(out_dir, 'modinfo.json')
     os.makedirs(os.path.dirname(destination_path), exist_ok=True)
     with open(destination_path, 'w', newline='\n') as dest:
         pajson.dump(modinfo, dest, indent=2)
-
-    # mount the mod directory
-    src.mount('/mod', out_dir)
 
     # remove destination files
     shutil.rmtree(os.path.join(out_dir, 'pa'), ignore_errors=True)
@@ -76,11 +77,8 @@ def generate_mod(is_titans):
 
     # generate the stratigic icon effects
     print ('==== running strategic icon generator')
-    src.unmount('/mod')
     src.mount('/', out_dir)
     process_changes(generate_strat_icons(src), src, out_dir)
-
-    spec.clear_cache()
 
     if options.get('debug_mode', False):
         deploy_debug(out_dir, is_titans)

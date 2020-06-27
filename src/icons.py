@@ -147,4 +147,4 @@ def generate_strat_icons(loader):
                                 {"op": "add", "path": "/fx_trail", "value": patch_value}
                             ]
                         })
-    return patches
+    return sorted(patches, key=lambda item: item["target"])
