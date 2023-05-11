@@ -34,7 +34,6 @@
                 "emissionRate": 60,
                 "lifetime": 0.5,
                 "emitterLifetime": 0.3,
-                "useWorldSpace": true,
                 "endDistance": 1600,
                 "bLoop": false
             }},

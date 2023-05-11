@@ -14,8 +14,8 @@
     "destination": "/pa/units/land/attack_vehicle/attack_vehicle_muzzle_flash.pfx",
     "patch": [
       {"op" : "replace", "path" : "/emitters/0/spec/red",     "value" : [[0.3, 5], [1, 1.00]]},
-      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0.3, 1], [1, 0.30]]},
-      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0.3, 1], [1, 0.70]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0.3, 3], [1, 0.70]]},
+      {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0.3, 1], [1, 0.30]]},
 
       {"op" : "scale", "path" : "/emitters/0/sizeX",    "value" : 0.4},
       {"op" : "scale", "path" : "/emitters/1/sizeX",    "value" : 0.4},

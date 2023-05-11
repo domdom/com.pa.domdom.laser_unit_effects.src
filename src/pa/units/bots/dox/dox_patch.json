@@ -68,6 +68,9 @@
       {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : 0.05},
       {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : 0.05},
 
+      {"op" : "scale",   "path" : "/emitters/0/sizeY",        "value" : 0.8},
+      {"op" : "scale",   "path" : "/emitters/0/velocity",     "value" : 0.8},
+
       {"op" : "copy", "path" : "/emitters/1/spec/red",    "from" : "/emitters/0/spec/red"},
       {"op" : "copy", "path" : "/emitters/1/spec/green",    "from" : "/emitters/0/spec/green"},
       {"op" : "copy", "path" : "/emitters/1/spec/blue",    "from" : "/emitters/0/spec/blue"},
