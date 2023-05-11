@@ -13,6 +13,9 @@
         {"op" : "scale", "path" : "/emitters/1/sizeX", "value" : 0.5},
         {"op" : "scale", "path" : "/emitters/2/sizeX", "value" : 0.5},
 
+        {"op" : "replace", "path" : "/emitters/0/offsetY", "value" : -0.4},
+        {"op" : "replace", "path" : "/emitters/1/offsetY", "value" : -0.5},
+        {"op" : "replace", "path" : "/emitters/2/offsetY", "value" : -0.5},
 
         {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0.3, 0.6], [1, 0.50]]},
         {"op" : "replace", "path" : "/emitters/1/spec/green",   "value" : [[0.3, 0.2], [1, 0.20]]},
@@ -31,7 +34,7 @@
         {"op" : "replace", "path" : "/emitters/3/spec/blue",   "value" : 3.0},
         {"op": "add", "path": "/emitters/-", "value": {
           "spec": {
-            "shader": "particle_transparent_lit",
+            "shader": "particle_add_soft",
             "facing" : "velocity",
             "red": 1,
             "green": 0.1,
@@ -61,7 +64,7 @@
       {"op" : "add", "path" : "/emitters/-", "value" :  {
           "spec": {
             "label": "SPARKS",
-            "shader": "particle_transparent_lit",
+            "shader": "particle_add_soft",
             "facing": "velocity",
             "sizeX": [[0.5, 1.0 ], [1, 0.0 ] ],
             "red": [[0, 1 ], [1, 1 ] ],
@@ -86,6 +89,28 @@
           "useWorldSpace": true,
           "bLoop": false,
           "endDistance": 400
+        }
+      },
+      {"op" : "add", "path" : "/emitters/-", "value" :  {
+          "spec": {
+            "label": "Bright Muzzle flash white dot",
+            "shader": "particle_add_soft",
+            "facing": "camera",
+            "alpha": [[1, 1], [1, 0]],
+            "cameraPush": 2,
+            "baseTexture": "/pa/effects/textures/particles/softdot.papa"
+          },
+          "red": 14,
+          "green": 10,
+          "blue": 14,
+          "offsetY": -0.4,
+          "sizeX": 0.7,
+          "lifetime": 0.1,
+          "emissionBursts": 1,
+          "emitterLifetime": 0.1,
+          "useWorldSpace": false,
+          "bLoop": false,
+          "endDistance": 500
         }
       }
     ]
