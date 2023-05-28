@@ -6,7 +6,9 @@
       {"op": "add", "path": "/fx_trail", "value": {
         "filename": "/pa/units/land/artillery_long/artillery_long_ammo_trail.pfx",
         "offset": [0.0, 0.0, 0.0]
-      }}
+      }},
+      // TODO: Consider adding scorch mark to Holkins impact
+      // {"op": "add", "path": "/impact_decals", "value": ["/pa/effects/specs/scorch_b_01.json"]}
     ]
   },
   {
@@ -50,7 +52,7 @@
       {"op" : "replace", "path" : "/emitters/0/spec/green",   "value" : [[0, 1 ], [0.35, 1 ]]},
       {"op" : "replace", "path" : "/emitters/0/spec/blue",    "value" : [[0, 50 ], [0.35, 10]]},
 
-      {"op" : "replace", "path" : "/emitters/1/lifetime",     "value" : 2.4},
+      {"op" : "replace", "path" : "/emitters/1/lifetime",     "value" : 2},
 
 
       {"op" : "replace", "path" : "/emitters/1/spec/red",     "value" : [[0, 100 ], [0.35, 10 ]]},
@@ -60,10 +62,12 @@
       {"op" : "replace", "path" : "/emitters/4/spec/red",     "value" : [[0, 10 ], [0.75, 10 ]]},
       {"op" : "replace", "path" : "/emitters/4/spec/green",   "value" : [[0, 1 ], [0.75, 1 ]]},
       {"op" : "replace", "path" : "/emitters/4/spec/blue",    "value" : [[0, 20 ], [0.75, 1]]},
+      {"op" : "scale",   "path" : "/emitters/4/lifetime",     "value" : 2},
+      {"op" : "scale",   "path" : "/emitters/4/endDistance",  "value" : 2},
 
       {"op" : "replace", "path" : "/emitters/5/spec/red",     "value" : [[0, 0.1 ], [0.75, 0 ]]},
-      {"op" : "replace", "path" : "/emitters/5/spec/green",   "value" : [[0, 10 ], [0.75, 1 ]]},
-      {"op" : "replace", "path" : "/emitters/5/spec/blue",    "value" : [[0, 100 ], [0.75, 100]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/green",   "value" : [[0, 10 ],  [0.75, 1 ]]},
+      {"op" : "replace", "path" : "/emitters/5/spec/blue",    "value" : [[0, 100 ], [0.75, 20]]},
 
       {"op" : "scale", "path" : "/emitters/5/emissionBursts", "value" : 2},
       {"op" : "add", "path" : "/emitters/5/delay", "value" : 0.0},
@@ -76,16 +80,168 @@
       {"op" : "replace", "path" : "/emitters/2/spec/green", "value" : 0.4},
       {"op" : "replace", "path" : "/emitters/2/spec/blue",  "value" : 6.0},
 
-      {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 0.5}  ,
+      // molten sparks
+      {"op" : "replace", "path" : "/emitters/3/spec/red",   "value" : 0.5},
       {"op" : "replace", "path" : "/emitters/3/spec/green", "value" : 0.5},
       {"op" : "replace", "path" : "/emitters/3/spec/blue",  "value" : 6.0},
+      {"op" : "add", "path" : "/emitters/3/spec/alpha",  "value" : [[0, 1], [0.9, 1], [1, 0]]},
 
-      {"op" : "scale", "path" : "/emitters/3/emissionBursts", "value" : 3},
-      {"op" : "scale", "path" : "/emitters/3/velocity", "value" : 0.8},
-      {"op" : "scale", "path" : "/emitters/3/sizeY", "value" : 0.6},
-      {"op" : "scale", "path" : "/emitters/3/velocityRange", "value" : 2},
+      {"op" : "add", "path" : "/emitters/3/spec/polyAdjustCenter",  "value" : 0.5},
+      {"op" : "scale", "path" : "/emitters/3/emissionBursts", "value" : 5},
+      {"op" : "scale", "path" : "/emitters/3/velocity", "value" : 1},
+      {"op" : "add", "path" : "/emitters/3/spec/sizeX", "value" : [[0, 0.4], [1, 0.2]]},
+      {"op" : "add", "path" : "/emitters/3/spec/sizeY", "value" : [[0, 1], [0.3, 0.05]]},
+      {"op" : "add", "path" : "/emitters/3/drag", "value" : 0.96},
+      {"op" : "scale", "path" : "/emitters/3/lifetime", "value" : 2},
 
       {"op" : "scale_effect", "value" : 1.6},
+
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+        "label": "shooting debris",
+          "spec": {
+              "shader": "particle_transparent",
+              "size":  [ [ 0, 1 ], [ 0.5, 0.7 ], [ 1, 0 ] ],
+              "red": 0.1,
+              "green": 0.1,
+              "blue": 0.1,
+              "baseTexture": "/pa/effects/textures/particles/debrisChunks.papa",
+              "flipBookColumns": 3,
+              "flipBookRows": 3,
+              "flipBookRandomStart": true,
+              "dataChannelFormat": "PositionColorAndFlipbook"
+          },
+          "type": "SPHEROID",
+          "offsetRangeX": 6,
+          "offsetRangeY": 6,
+          "offsetRangeZ": 6,
+          "offsetAllowNegZ": false,
+          "velocity": 80,
+          "velocityZ": 0.5,
+          "velocityRange": 10,
+          "useRadialVelocityDir": true,
+          "gravity": -9.8,
+          "drag": 0.97,
+          "delay": 0.24,
+          "sizeX": 1,
+          "sizeRangeX": 0.25,
+          "emissionBursts": [[0, 7, 2]],
+          "rotationRange": 3.2,
+          "rotationRateRange": 10,
+          "lifetime": 3,
+          "lifetimeRange": 0.6,
+          "emitterLifetime": 0.1,
+          "bLoop": false
+        }
+      },
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+            "spec": {
+                "shader": "particle_transparent_lit",
+                "size": [ [ 0, 0 ], [ 0.05, 1 ], [ 0.25, 1.2 ], [ 1, 0 ] ],
+                "rgb": [
+                  [0.0, 4, [255, 255, 255, 255]],
+                  [0.05, 6, [128, 128, 255, 255]],
+                  [0.15, 8, [ 64, 128, 255, 255]],
+                  [0.25, 1, [120, 120, 120, 200]],
+                  [1.0, 1, [120, 120, 120, 0]]
+                ],
+                "cameraPush": 1,
+                "baseTexture": "/pa/effects/textures/particles/softSmoke.papa",
+                "dataChannelFormat": "PositionAndColor"
+            },
+            "type": "emitter",
+            "linkIndex": 9,
+            "velocityZ": 0.25,
+            "velocityRangeX": 0.1,
+            "velocityRangeY": 0.1,
+            "useRadialVelocityDir": true,
+            "velocity": 1.0,
+            "sizeX": [ [ 0.0, 0 ], [0.05, 4], [ 0.8 , 0.7 ], [4, 0]],
+            "sizeRangeX": 0.3,
+            "rampV": 0.25,
+            "gravity": -0.1,
+            "emissionRate": 100,
+            "rotationRange": 0.1,
+            "rotationRateRange": 0.25,
+            "lifetime": [ [ 0, 3.0 ], [ 0.2, 2.6 ] ],
+            "lifetimeRange": 0.2,
+            "emitterLifetime": 4,
+            "bLoop": false
+      }},
+
+
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+        "label": "shooting debris 2",
+        "spec": {
+            "shader": "particle_transparent",
+            "size":  [ [ 0, 1 ], [ 0.5, 0.7 ], [ 1, 0 ] ],
+            "red": 0.1,
+            "green": 0.1,
+            "blue": 0.1,
+            "baseTexture": "/pa/effects/textures/particles/debrisChunks.papa",
+            "flipBookColumns": 3,
+            "flipBookRows": 3,
+            "flipBookRandomStart": true,
+            "dataChannelFormat": "PositionColorAndFlipbook"
+        },
+        "type": "SPHEROID",
+        "offsetRangeX": 6,
+        "offsetRangeY": 6,
+        "offsetRangeZ": 6,
+        "offsetAllowNegZ": false,
+        "velocity": 80,
+        "velocityZ": 0.5,
+        "velocityRange": 10,
+        "useRadialVelocityDir": true,
+        "gravity": -9.8,
+        "drag": 0.97,
+        "delay": 0.24,
+        "sizeX": 1,
+        "sizeRangeX": 0.25,
+        "emissionBursts": [[0, 3, 1]],
+        "rotationRange": 3.2,
+        "rotationRateRange": 10,
+        "lifetime": 3,
+        "lifetimeRange": 0.6,
+        "emitterLifetime": 0.1,
+        "bLoop": false
+      }},
+      {"op" : "add", "path" : "/emitters/-", "value" : {
+        "label": "smokey debris trail",
+        "spec": {
+            "shader": "particle_transparent_lit",
+            "size": [ [ 0, 0 ], [ 0.05, 1 ], [ 0.25, 1.2 ], [ 1, 0 ] ],
+            "rgb": [
+              [0.00, 4, [255, 255, 255, 255]],
+              [0.05, 6, [128, 128, 255, 255]],
+              [0.15, 8, [128, 100,  64, 255]],
+              [0.25, 1, [120, 120, 120, 200]],
+              [1.00, 1, [120, 120, 120, 0]]
+            ],
+            "cameraPush": 1,
+            "baseTexture": "/pa/effects/textures/particles/softSmoke.papa",
+            "dataChannelFormat": "PositionAndColor"
+        },
+        "type": "emitter",
+        "linkIndex": 11,
+        "velocityZ": 0.25,
+        "velocityRangeX": 0.1,
+        "velocityRangeY": 0.1,
+        "useRadialVelocityDir": true,
+        "velocity": 1.0,
+        "sizeX": [ [ 0.0, 0 ], [0.05, 4], [ 0.8 , 0.7 ], [4, 0]],
+        "sizeRangeX": 0.3,
+        "rampV": 0.25,
+        "gravity": -0.1,
+        "emissionRate": 100,
+        "rotationRange": 0.1,
+        "rotationRateRange": 0.25,
+        "lifetime": [ [ 0, 3.0 ], [ 0.2, 2.6 ] ],
+        "lifetimeRange": 0.2,
+        "emitterLifetime": 4,
+        "bLoop": false
+      }},
+
+
 
       {"op" : "add", "path" : "/emitters/-", "value" : {
          "spec": {
@@ -142,6 +298,29 @@
           "endDistance": 2000
       }},
       {"op" : "add", "path" : "/emitters/-", "value" : {
+        "label": "pulsing rings",
+        "spec": {
+          "shader": "particle_add",
+          "facing": "EmitterZ",
+          "size": [[0, 0], [0.2, 0.667], [0.4, 0.889], [0.6, 0.963], [0.8, 0.98], [1, 1]],
+          "red": 0.05,
+          "green": 0.35,
+          "blue": 5.0,
+          "alpha": [[0.2, 2], [0.3, 1], [0.6, 0.5], [1, 0]],
+          "baseTexture": "/pa/effects/textures/particles/simpleExplosionRing.papa",
+          "cameraPush": 1,
+          "dataChannelFormat": "PositionAndColor"
+        },
+        "offsetZ": 0,
+        "sizeX": [[0, 30], [2, 10]],
+        "emissionRate": [[0, 8], [0.5, 3], [0.6, 0], [1, 1], [1.5, 8]],
+        "rotationRange": 3.1415,
+        "lifetime": 0.25,
+        "emitterLifetime": 1.8,
+        "bLoop": false,
+        "endDistance": 1000
+      }},
+      {"op" : "add", "path" : "/emitters/-", "value" : {
         "spec": {
             "shader": "particle_transparent",
             "facing": "velocity",
@@ -167,7 +346,6 @@
         "velocityRangeZ": 1,
         "velocityRangeY": 1,
         "sizeX": 4.8,
-        "sizeY": [[0, 4.8], [2, 0.8]],
         "sizeRangeX": 1.6,
         "sizeY": [[0, 36.8], [2, 6.4]],
         "sizeRangeY": [[0, 16], [2, 3.2]],
@@ -187,16 +365,16 @@
           "blue": 0.7,
           "alpha": [[0, 0.7 ], [1, 0 ] ],
           "sizeX": [[0, 0.875 ], [1, 1 ] ],
-          "cameraPush" : 0.02,
+          "cameraPush" : 0.2,
           "baseTexture": "/pa/effects/textures/particles/soft_flare.papa"
         },
         "sizeX": 128,
         "emissionBursts": 2,
         "maxParticles": 3,
         "rotationRange": 3.1416,
-        "lifetime": 2.1,
+        "lifetime": 2.5,
         "bLoop": false,
-        "endDistance": 850
+        "endDistance": 2300
       }},
       {"op" : "add", "path" : "/emitters/-", "value" :     {
         "spec": {
@@ -207,7 +385,7 @@
           "blue": 1.0,
           "alpha": [[0, 0.7 ], [1, 0 ] ],
           "sizeX": [[0, 0.875 ], [1, 1 ] ],
-          "cameraPush" : 0.02,
+          "cameraPush" : 0.2,
           "baseTexture": "/pa/effects/textures/particles/soft_flare.papa"
         },
         "sizeX": 144,
@@ -216,7 +394,7 @@
         "rotationRange": 3.1416,
         "lifetime": 2.1,
         "bLoop": false,
-        "endDistance": 850
+        "endDistance": 2300
       }},
       {"op" : "add", "path" : "/emitters/-", "value" : {
         "spec": {
@@ -224,11 +402,15 @@
           "shader": "particle_transparent_lit",
           "size": [[0, 0.7 ], [0.1, 1 ], [0.25, 1.2 ], [0.35, 1.15 ], [0.45, 0.98 ], [1, 0.8 ] ],
 
-          "rgb": [[0.0, 4, [255, 10, 255, 50 ] ], [1, 1, [100, 50, 100, 0 ] ] ],
+          "rgb": [
+            [0, 4, [255, 10, 255, 150 ] ],
+            [0.3, 0.2, [255, 100, 255, 80 ] ],
+            [1, 1, [60, 60, 60, 0 ] ]
+           ],
 
           "rotationRateMult": [[0, 1 ], [1, 0.2 ] ],
           "cameraPush": 0.5,
-          "baseTexture": "/pa/effects/textures/particles/simpleSmoke.papa",
+          "baseTexture": "/pa/effects/textures/particles/softSmoke.papa",
           "dataChannelFormat": "PositionAndColor"
         },
         "type": "SHELL",
@@ -250,7 +432,7 @@
         "rampRangeV": 0.5,
         "drag": 0.99,
         "delay": 0.6,
-        "emissionBursts": 12,
+        "emissionBursts": 25,
         "rotationRange": 0.1,
         "rotationRateRange": 0.25,
         "lifetime": 4.0,
@@ -265,10 +447,14 @@
           "label": "SMOKE RING",
           "shader": "particle_transparent_lit",
           "size": [[0, 0 ], [0.05, 1 ], [0.15, 1.15 ], [0.25, 1.2 ], [0.35, 1.15 ], [0.45, 0.98 ], [1, 0.8 ] ],
-          "rgb": [[0.0, 100, [1, 10, 100, 130 ] ], [1, 1, [1, 10, 100, 0 ] ] ],
+          "rgb": [
+            [0, 4, [1, 10, 100, 130 ] ],
+            [0.3, 1, [100, 100, 100, 80 ] ],
+            [1, 1, [200, 200, 200, 0 ] ]
+           ],
           "rotationRateMult": [[0, 1 ], [1, 0.2 ] ],
           "cameraPush": 0.5,
-          "baseTexture": "/pa/effects/textures/particles/simpleSmoke.papa",
+          "baseTexture": "/pa/effects/textures/particles/softSmoke.papa",
           "dataChannelFormat": "PositionAndColor"
         },
         "type": "CYLINDER_Z",
@@ -289,9 +475,7 @@
         "rampV": 0.875,
         "drag": 0.985,
         "delay": 0.2,
-        "emissionBursts": {
-          "count": 25
-        },
+        "emissionBursts": 48,
         "rotationRange": 0.1,
         "rotationRateRange": 0.25,
         "lifetime": 4.0,
@@ -475,8 +659,8 @@
             "red": 0.6,
             "green": 0.9,
             "blue": 5,
-            "baseTexture": "/pa/effects/textures/particles/simpleSmokeSingle.papa",
-            "rampTexture": "/pa/effects/textures/particles/uncompressed/simpleSmokeCenter_ramp.papa",
+            "alpha": [[0, 1], [0.1, 0.5], [1, 0]],
+            "baseTexture": "/pa/effects/textures/particles/softSmoke.papa",
             "dataChannelFormat": "PositionColorAndAlignVector"
           },
           "velocityRangeX": 0.2,
