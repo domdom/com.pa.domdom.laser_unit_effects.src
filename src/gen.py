@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 import os
 import shutil
-from distutils import dir_util
 
-from pa_tools.pa import pafs
 from pa_tools.pa import paths
 from pa_tools.pa import pajson
 from pa_tools.pa import spec
@@ -46,6 +44,7 @@ def load_json(loader, path):
 
 
 def generate_mod(is_titans):
+    temp_dir = '../tmp'
     if is_titans:
         print ('TITANS')
         out_dir = '../titans'
@@ -70,15 +69,24 @@ def generate_mod(is_titans):
 
     # remove destination files
     shutil.rmtree(os.path.join(out_dir, 'pa'), ignore_errors=True)
+    shutil.rmtree(temp_dir, ignore_errors=True)
 
     ## Generate the mod
     sources = load_json(src, '/src/pa/sources.json')
     process_changes(sources, src, out_dir)
 
-    # generate the stratigic icon effects
+    # generate the strategic icon effect patches
     print ('==== running strategic icon generator')
     src.mount('/', out_dir)
-    process_changes(generate_strat_icons(src), src, out_dir)
+    icon_patches = generate_strat_icons(src)
+    # Generate updated effects in a separate directory to make sure the changes don't affect the 'source'
+    os.makedirs(temp_dir, exist_ok=True)
+    process_changes(icon_patches, src, temp_dir)
+    # Finally, copy files from the temp_dir back over the output directory
+    shutil.copytree(temp_dir, out_dir, dirs_exist_ok=True)
+    # And remove it
+    shutil.rmtree(temp_dir, ignore_errors=True)
+
 
     if options.get('debug_mode', False):
         deploy_debug(out_dir, is_titans)
@@ -104,5 +112,5 @@ def optimize_mod(loader, out_dir):
                         pajson.dump(file_spec, f, indent=2)
 
 
-generate_mod(False)
-generate_mod(True)
+generate_mod(is_titans=False)
+generate_mod(is_titans=True)
