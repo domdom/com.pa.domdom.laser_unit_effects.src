@@ -1,8 +1,11 @@
 [
+  /*
   {
     "target" : "/pa/units/commanders/base_commander/base_commander.json",
     "patch" : [
-      {"op" : "add", "path" : "/events/fired", "value" : {"effect_spec" : "/pa/units/commanders/base_commander/base_commander_muzzle_flash.pfx socket_rightMuzzle"}}
+      {"op" : "test", "path" : "/tools/1/primary_weapon", "value" : true },
+      {"op" : "add", "path" : "/tools/1/fire_event", "value" : "fired0" },
+      {"op" : "add", "path" : "/events/fired0", "value" : {"effect_spec" : "/pa/units/commanders/base_commander/base_commander_muzzle_flash.pfx socket_rightMuzzle"}},
     ]
   },
   {
@@ -41,6 +44,7 @@
       }
     ]
   },
+  */
   {
     "target" : "/pa/units/commanders/base_commander/base_commander_ammo_bullet.json",
     "patch" : [

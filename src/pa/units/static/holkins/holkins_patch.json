@@ -6,7 +6,7 @@
       {"op": "add", "path": "/fx_trail", "value": {
         "filename": "/pa/units/land/artillery_long/artillery_long_ammo_trail.pfx",
         "offset": [0.0, 0.0, 0.0]
-      }},
+      }}
       // TODO: Consider adding scorch mark to Holkins impact
       // {"op": "add", "path": "/impact_decals", "value": ["/pa/effects/specs/scorch_b_01.json"]}
     ]
