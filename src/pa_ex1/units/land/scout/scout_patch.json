@@ -1,0 +1,9 @@
+[
+  {
+    "target": "/pa/units/land/land_scout/land_scout.json",
+    "patch": [
+      // FIXME: Remove once this is fixed upstream
+      { "op": "add", "path": "/events/fired", "value": { "effect_spec": "", "audio_cue": "" } }
+    ]
+  }
+]

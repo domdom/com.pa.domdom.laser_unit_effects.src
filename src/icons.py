@@ -115,8 +115,13 @@ def generate_strat_icons(loader):
 
                     ammo = spec.parse_spec(loader, ammo_id)
 
+                    # Some projectiles have no trail
+                    if 'fx_trail' not in ammo:
+                        continue
+
                     # must be ammo_projectile type, or its the uber cannon projectile
                     if ammo['ammo_type'] == 'AMMO_Projectile' or (ammo['ammo_type'] == 'Projectile' and 'uber' in ammo_id):
+                        
                         fx_id = ammo['fx_trail']['filename']
 
                         size = compute_size(ammo['damage'])

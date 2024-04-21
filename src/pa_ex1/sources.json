@@ -8,6 +8,9 @@
     { "from_file" : "/src/pa/units/land/leveler/leveler_patch.json"},
     { "from_file" : "/src/pa/units/land/sheller/sheller_patch.json"},
 
+    // Special hack to remove muzzle flash
+    { "from_file" : "/src/pa/units/land/scout/scout_patch.json"},
+
     { "from_file" : "/src/pa/units/land/stryker/stryker_patch.json"},
 
     // bots
