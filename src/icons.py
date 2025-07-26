@@ -94,6 +94,10 @@ def generate_strat_icons(loader):
         for tool_obj in unit.get('tools', []):
             tool = spec.parse_spec(loader, tool_obj['spec_id'])
 
+            # Land scout has non-existant tool
+            if tool is None:
+                continue
+
             # ignore tools which are not weapons
             if tool.get('tool_type', 'TOOL_BuildArm') == 'TOOL_BuildArm':
                 continue

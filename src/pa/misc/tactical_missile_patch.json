@@ -1,6 +1,6 @@
 [
     {
-        "target" : "/pa/units/air/missile_tactical/missile_tactical_trail.pfx",
+        "target" : "/src/pa/base_effects/missile_tactical_trail.pfx",
         "destination" : [
             "/pa/units/land/bot_tactical_missile/bot_tactical_missile_ammo_trail.pfx",
             "/pa/units/land/tactical_missile_launcher/tactical_missile_launcher_ammo_trail.pfx",
@@ -33,7 +33,7 @@
         ]
     },
     {
-        "target" : "/pa/units/air/missile_tactical/missile_tactical_trail.pfx",
+        "target" : "/src/pa/base_effects/missile_tactical_trail.pfx",
         "destination" : "/pa/units/sea/missile_ship/missile_ship_ammo_trail.pfx",
         "patch" : [
             {"op" : "replace", "path" : "/emitters/0/spec/green", "value" : 0.2},

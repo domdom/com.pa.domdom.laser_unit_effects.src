@@ -10,6 +10,14 @@
       {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/torpedo/torpedo_hit.pfx"}
     ]
   },
+  // Frigate got its own torpedo weapon/trail
+  {
+    "target" : "/pa/units/sea/frigate/frigate_ammo_torpedo.json",
+    "patch" : [
+      {"op" : "replace", "path" : "/fx_trail/filename", "value" : "/pa/units/sea/torpedo/torpedo_trail.pfx"},
+      {"op" : "replace", "path" : "/events/died/effect_spec", "value" : "/pa/units/sea/torpedo/torpedo_hit.pfx"}
+    ]
+  },
   {
     "target": "/src/pa/base_effects/arty_ammo_hit.pfx",
     "destination" : "/pa/units/sea/torpedo/torpedo_hit.pfx",
